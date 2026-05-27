@@ -17,11 +17,12 @@ export default function Home() {
         <Reveal delay={0.1}>
           <About />
         </Reveal>
-        <Reveal delay={0.1}>
-          <Team />
-        </Reveal>
+
         <Reveal delay={0.1}>
           <Services />
+        </Reveal>
+        <Reveal delay={0.1}>
+          <Team />
         </Reveal>
         <Reveal delay={0.1}>
           <ContactForm />
