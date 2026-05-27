@@ -5,16 +5,12 @@ export default function About() {
     <section id="nosotros" className="bg-surface-container-low py-32">
       <div className="max-w-6xl mx-auto px-8 flex flex-col items-center text-center space-y-16">
 
-        {/* Distintivo / Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-container text-on-secondary-container font-semibold text-sm shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
-          <span className="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
-          Nuestra Misión
-        </div>
+
 
         {/* Encabezado y Subencabezado */}
-        <div className="space-y-4 max-w-3xl">
-          <h2 className="text-6xl md:text-6xl font-headline font-extrabold text-on-surface leading-tight">
-            Nuestra misión es <span className="text-tertiary">esculpir</span> el futuro digital
+        <div className="space-y-4 max-w-4xl">
+          <h2 className="text-4xl md:text-5xl font-headline font-extrabold text-on-surface leading-tight">
+            Potenciamos tu proyecto con <span className="text-primary">diseño</span> y <span className="text-tertiary">programación inteligente</span>
           </h2>
           <p className="text-xl md:text-2xl text-on-surface-variant font-medium leading-relaxed">
             19 años optimizando el aprendizaje corporativo
@@ -63,7 +59,7 @@ export default function About() {
         <div className="grid grid-cols-2 gap-12 md:gap-24 pt-12 w-full max-w-2xl mx-auto border-t border-outline/10">
           <div className="flex flex-col items-center">
             <div className="text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary mb-2">
-              <CountUp to={150} direction="up" duration={2} className="inline-block" />+
+              <CountUp to={35} direction="up" duration={2} className="inline-block" />+
             </div>
             <div className="text-xs md:text-sm font-bold uppercase tracking-wider text-outline">Proyectos Exitosos</div>
           </div>
