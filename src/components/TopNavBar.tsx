@@ -9,8 +9,8 @@ export default function TopNavBar() {
   return (
     <nav className={`mt-4 mx-auto w-[95%] max-w-7xl sticky top-4 z-50 bg-surface/80 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] text-on-surface transition-all duration-300 ${isOpen ? 'rounded-2xl' : 'rounded-full'}`}>
       <div className="flex justify-between items-center px-6 md:px-8 py-3">
-        <div className="text-xl md:text-2xl font-black text-purple-700 font-headline tracking-tight">Global Code</div>
-        
+        <div className="text-xl md:text-2xl font-black text-purple-700 font-headline tracking-tight">Smart Brain <br></br> <h4 className='text-sm'>Innovación y Desarrollo</h4></div>
+
         {/* Enlaces de Escritorio */}
         <div className="hidden md:flex items-center space-x-1">
           <Link to="inicio" smooth={true} duration={500} offset={-100} className="cursor-pointer text-purple-700 border-b-2 border-purple-600 pb-1 font-headline font-bold tracking-tight px-4 py-2">Inicio</Link>
@@ -23,9 +23,9 @@ export default function TopNavBar() {
         <Link to="contacto" smooth={true} duration={500} offset={-100} className="hidden md:block cursor-pointer bg-primary text-on-primary px-8 py-3 rounded-full font-bold transition-transform scale-95 active:scale-90 hover:shadow-lg">
           Cotizar
         </Link>
-        
+
         {/* Botón Menú Móvil (Hamburger) */}
-        <button 
+        <button
           className="md:hidden flex items-center justify-center p-2 text-slate-600 hover:bg-purple-50 rounded-full transition-colors"
           onClick={() => setIsOpen(!isOpen)}
         >

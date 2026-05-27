@@ -5,10 +5,7 @@ export default function Hero() {
   return (
     <section id="inicio" className="max-w-7xl mx-auto px-8 pt-16 pb-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
       <div className="space-y-8">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-container text-on-secondary-container font-semibold text-sm">
-          <span className="w-2 h-2 rounded-full bg-tertiary"></span>
-          Estrategia Digital de Vanguardia
-        </div>
+
         <h1 className="text-5xl md:text-7xl font-headline font-extrabold text-on-surface leading-[1.1] tracking-tight">
           Diseñamos <TextType text="Productos Digitales" as="span" className="text-primary font-extrabold" loop={true} /> Excepcionales
         </h1>
