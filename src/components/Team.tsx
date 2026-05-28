@@ -3,17 +3,17 @@ import Image from 'next/image';
 export default function Team() {
   const members = [
     {
-      name: 'Carlos Mendoza',
+      name: 'Mauricio Zúñiga',
       role: 'Director de Tecnología & E-Learning',
-      experience: '12+ años de experiencia. Arquitecturas corporativas e innovación.',
+      experience: '15+ años de experiencia. Arquitecturas corporativas e innovación.',
       image: '/carlos.png',
-      icon: 'psychology'
+      icon: ''
     },
     {
       name: 'Laura Santillán',
       role: 'Líder de Diseño UX/UI & Multimedia',
       experience: '8+ años de experiencia. Identidades de marca y accesibilidad pedagógica.',
-      image: '/laura.png',
+      image: '/andres.png',
       icon: 'palette'
     },
     {
@@ -28,7 +28,7 @@ export default function Team() {
   return (
     <section id="equipo" className="bg-surface py-32 border-t border-outline/5">
       <div className="max-w-7xl mx-auto px-8">
-        
+
         {/* Encabezado: Título a la izquierda, Párrafo descriptivo a la derecha */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-24">
           <div className="lg:col-span-4 space-y-4">
@@ -48,15 +48,15 @@ export default function Team() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 text-center max-w-5xl mx-auto">
           {members.map((member, index) => (
             <div key={index} className="flex flex-col items-center group">
-              
-              {/* Icono superior en azul */}
+
+              {/* Icono superior en azul
               <div className="w-10 h-10 mb-6 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
                 <span className="material-symbols-outlined text-xl">{member.icon}</span>
-              </div>
+              </div> */}
 
               {/* Retrato Circular en Blanco y Negro (Con transición a color en hover) */}
               <div className="relative w-48 h-48 mb-6 rounded-full overflow-hidden border border-outline/10 bg-surface-container-high shadow-md transition-all duration-500 group-hover:shadow-lg group-hover:scale-[1.02]">
-                <Image 
+                <Image
                   src={member.image}
                   alt={`Retrato de ${member.name}`}
                   fill
@@ -77,7 +77,7 @@ export default function Team() {
               <p className="text-outline text-xs leading-relaxed max-w-xs">
                 {member.experience}
               </p>
-              
+
             </div>
           ))}
         </div>
