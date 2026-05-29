@@ -159,15 +159,15 @@ export default function BentoGallery() {
           {/* Fondo oscuro con blur */}
           <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
 
-          {/* Contenedor de la imagen */}
+          {/* Contenedor de la imagen — solo la imagen para que el flex centre correctamente */}
           <div
             className={`relative z-10 max-w-5xl w-full transition-all duration-300 ${
               isClosing ? 'scale-95 opacity-0' : 'scale-100 opacity-100'
             }`}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Imagen */}
-            <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl"
+            <div
+              className="relative w-full rounded-2xl overflow-hidden shadow-2xl"
               style={{ aspectRatio: '16/9' }}
             >
               <Image
@@ -179,16 +179,19 @@ export default function BentoGallery() {
                 priority
               />
             </div>
+          </div>
 
-            {/* Pie del modal */}
-            <div className="flex items-center justify-between mt-4 px-1">
-              <span className="text-white/80 font-headline font-semibold text-lg">
-                {selected.alt}
-              </span>
-              <span className="text-white/50 text-sm tabular-nums">
-                {selectedIndex + 1} / {images.length}
-              </span>
-            </div>
+          {/* Pie del modal — anclado absolutamente fuera del flujo de centrado */}
+          <div
+            className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex items-center gap-6 px-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <span className="text-white/80 font-headline font-semibold text-base whitespace-nowrap">
+              {selected.alt}
+            </span>
+            <span className="text-white/40 text-sm tabular-nums">
+              {selectedIndex + 1} / {images.length}
+            </span>
           </div>
 
           {/* Botón cerrar */}
