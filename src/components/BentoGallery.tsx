@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import Image from 'next/image';
 
 interface GalleryImage {
@@ -39,6 +40,123 @@ const bentoStyles: React.CSSProperties[] = [
   { gridColumn: '4 / 5', gridRow: '3 / 4' },      // 007 — 1×1
 ];
 
+/* ── Lightbox como componente separado renderizado via Portal ── */
+function Lightbox({
+  image,
+  index,
+  isClosing,
+  onClose,
+  onNavigate,
+  onGoTo,
+}: {
+  image: GalleryImage;
+  index: number;
+  isClosing: boolean;
+  onClose: () => void;
+  onNavigate: (dir: 1 | -1) => void;
+  onGoTo: (i: number) => void;
+}) {
+  return createPortal(
+    <div
+      id="gallery-lightbox"
+      className={`fixed inset-0 flex items-center justify-center p-4 transition-all duration-250 ${
+        isClosing ? 'opacity-0' : 'opacity-100'
+      }`}
+      style={{ zIndex: 9999 }}
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={`Imagen ampliada: ${image.alt}`}
+    >
+      {/* Fondo oscuro con blur */}
+      <div className="absolute inset-0 bg-black/90 backdrop-blur-md" />
+
+      {/* Contenedor de la imagen */}
+      <div
+        className={`relative z-10 max-w-5xl w-full transition-all duration-300 ${
+          isClosing ? 'scale-95 opacity-0' : 'scale-100 opacity-100'
+        }`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div
+          className="relative w-full rounded-2xl overflow-hidden shadow-2xl"
+          style={{ aspectRatio: '16/9' }}
+        >
+          <Image
+            src={image.src}
+            alt={image.alt}
+            fill
+            sizes="100vw"
+            className="object-contain"
+            priority
+          />
+        </div>
+      </div>
+
+      {/* Pie del modal */}
+      <div
+        className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex items-center gap-6 px-4"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <span className="text-white/80 font-headline font-semibold text-base whitespace-nowrap">
+          {image.alt}
+        </span>
+        <span className="text-white/40 text-sm tabular-nums">
+          {index + 1} / {images.length}
+        </span>
+      </div>
+
+      {/* Botón cerrar */}
+      <button
+        id="gallery-close-btn"
+        onClick={onClose}
+        className="absolute top-5 right-5 z-20 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-colors duration-200 cursor-pointer"
+        aria-label="Cerrar galería"
+      >
+        <span className="material-symbols-outlined text-2xl">close</span>
+      </button>
+
+      {/* Botón anterior */}
+      <button
+        id="gallery-prev-btn"
+        onClick={(e) => { e.stopPropagation(); onNavigate(-1); }}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-colors duration-200 cursor-pointer"
+        aria-label="Imagen anterior"
+      >
+        <span className="material-symbols-outlined text-3xl">chevron_left</span>
+      </button>
+
+      {/* Botón siguiente */}
+      <button
+        id="gallery-next-btn"
+        onClick={(e) => { e.stopPropagation(); onNavigate(1); }}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-colors duration-200 cursor-pointer"
+        aria-label="Imagen siguiente"
+      >
+        <span className="material-symbols-outlined text-3xl">chevron_right</span>
+      </button>
+
+      {/* Indicadores de puntos */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        {images.map((_, i) => (
+          <button
+            key={i}
+            id={`gallery-dot-${i + 1}`}
+            onClick={(e) => { e.stopPropagation(); onGoTo(i); }}
+            className={`w-2 h-2 rounded-full transition-all duration-200 cursor-pointer ${
+              i === index
+                ? 'bg-white scale-125'
+                : 'bg-white/40 hover:bg-white/70'
+            }`}
+            aria-label={`Ir a imagen ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>,
+    document.body
+  );
+}
+
 export default function BentoGallery() {
   const [selected, setSelected] = useState<GalleryImage | null>(null);
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
@@ -67,6 +185,11 @@ export default function BentoGallery() {
     },
     [selectedIndex]
   );
+
+  const goTo = useCallback((i: number) => {
+    setSelectedIndex(i);
+    setSelected(images[i]);
+  }, []);
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -144,103 +267,16 @@ export default function BentoGallery() {
         </div>
       </div>
 
-      {/* ── Modal / Lightbox ── */}
+      {/* Lightbox renderizado via Portal en document.body */}
       {selected && (
-        <div
-          id="gallery-lightbox"
-          className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-250 ${
-            isClosing ? 'opacity-0' : 'opacity-100'
-          }`}
-          onClick={closeModal}
-          role="dialog"
-          aria-modal="true"
-          aria-label={`Imagen ampliada: ${selected.alt}`}
-        >
-          {/* Fondo oscuro con blur */}
-          <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
-
-          {/* Contenedor de la imagen — solo la imagen para que el flex centre correctamente */}
-          <div
-            className={`relative z-10 max-w-5xl w-full transition-all duration-300 ${
-              isClosing ? 'scale-95 opacity-0' : 'scale-100 opacity-100'
-            }`}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div
-              className="relative w-full rounded-2xl overflow-hidden shadow-2xl"
-              style={{ aspectRatio: '16/9' }}
-            >
-              <Image
-                src={selected.src}
-                alt={selected.alt}
-                fill
-                sizes="100vw"
-                className="object-contain"
-                priority
-              />
-            </div>
-          </div>
-
-          {/* Pie del modal — anclado absolutamente fuera del flujo de centrado */}
-          <div
-            className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex items-center gap-6 px-4"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <span className="text-white/80 font-headline font-semibold text-base whitespace-nowrap">
-              {selected.alt}
-            </span>
-            <span className="text-white/40 text-sm tabular-nums">
-              {selectedIndex + 1} / {images.length}
-            </span>
-          </div>
-
-          {/* Botón cerrar */}
-          <button
-            id="gallery-close-btn"
-            onClick={closeModal}
-            className="absolute top-5 right-5 z-20 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-colors duration-200 cursor-pointer"
-            aria-label="Cerrar galería"
-          >
-            <span className="material-symbols-outlined text-2xl">close</span>
-          </button>
-
-          {/* Botón anterior */}
-          <button
-            id="gallery-prev-btn"
-            onClick={(e) => { e.stopPropagation(); navigate(-1); }}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-colors duration-200 cursor-pointer"
-            aria-label="Imagen anterior"
-          >
-            <span className="material-symbols-outlined text-3xl">chevron_left</span>
-          </button>
-
-          {/* Botón siguiente */}
-          <button
-            id="gallery-next-btn"
-            onClick={(e) => { e.stopPropagation(); navigate(1); }}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-colors duration-200 cursor-pointer"
-            aria-label="Imagen siguiente"
-          >
-            <span className="material-symbols-outlined text-3xl">chevron_right</span>
-          </button>
-
-          {/* Indicadores de puntos */}
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-            {images.map((_, i) => (
-              <button
-                key={i}
-                id={`gallery-dot-${i + 1}`}
-                onClick={(e) => { e.stopPropagation(); setSelectedIndex(i); setSelected(images[i]); }}
-                className={`w-2 h-2 rounded-full transition-all duration-200 cursor-pointer ${
-                  i === selectedIndex
-                    ? 'bg-white scale-125'
-                    : 'bg-white/40 hover:bg-white/70'
-                }`}
-                aria-label={`Ir a imagen ${i + 1}`}
-              />
-            ))}
-          </div>
-        </div>
+        <Lightbox
+          image={selected}
+          index={selectedIndex}
+          isClosing={isClosing}
+          onClose={closeModal}
+          onNavigate={navigate}
+          onGoTo={goTo}
+        />
       )}
     </section>
   );
