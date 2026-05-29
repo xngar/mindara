@@ -6,6 +6,7 @@ const About = dynamic(() => import('../components/About'));
 const Team = dynamic(() => import('../components/Team'));
 const Services = dynamic(() => import('../components/Services'));
 const ContactForm = dynamic(() => import('../components/ContactForm'));
+const BentoGallery = dynamic(() => import('../components/BentoGallery'));
 
 export default function Home() {
   return (
@@ -20,6 +21,9 @@ export default function Home() {
 
         <Reveal delay={0.1}>
           <Services />
+        </Reveal>
+        <Reveal delay={0.1}>
+          <BentoGallery />
         </Reveal>
         <Reveal delay={0.1}>
           <Team />
