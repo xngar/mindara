@@ -16,6 +16,8 @@ export default function TopNavBar() {
           <Link to="inicio" smooth={true} duration={500} offset={-100} className="cursor-pointer text-purple-700 border-b-2 border-purple-600 pb-1 font-headline font-bold tracking-tight px-4 py-2">Inicio</Link>
           <Link to="nosotros" smooth={true} duration={500} offset={-100} className="cursor-pointer text-slate-600 hover:text-purple-600 flex transition-colors hover:bg-purple-50 rounded-full px-4 py-2 font-headline font-bold tracking-tight">Nosotros</Link>
           <Link to="servicios" smooth={true} duration={500} offset={-100} className="cursor-pointer text-slate-600 hover:text-purple-600 flex transition-colors hover:bg-purple-50 rounded-full px-4 py-2 font-headline font-bold tracking-tight">Servicios</Link>
+          <Link to="galeria" smooth={true} duration={500} offset={-100} className="cursor-pointer text-slate-600 hover:text-purple-600 flex transition-colors hover:bg-purple-50 rounded-full px-4 py-2 font-headline font-bold tracking-tight">Galería</Link>
+          <Link to="equipo" smooth={true} duration={500} offset={-100} className="cursor-pointer text-slate-600 hover:text-purple-600 flex transition-colors hover:bg-purple-50 rounded-full px-4 py-2 font-headline font-bold tracking-tight">Equipo</Link>
           <Link to="contacto" smooth={true} duration={500} offset={-100} className="cursor-pointer text-slate-600 hover:text-purple-600 flex transition-colors hover:bg-purple-50 rounded-full px-4 py-2 font-headline font-bold tracking-tight">Contacto</Link>
         </div>
 
@@ -39,6 +41,8 @@ export default function TopNavBar() {
           <Link to="inicio" onClick={() => setIsOpen(false)} smooth={true} duration={500} offset={-100} className="cursor-pointer text-purple-700 font-headline font-bold tracking-tight py-2 border-b border-purple-100">Inicio</Link>
           <Link to="nosotros" onClick={() => setIsOpen(false)} smooth={true} duration={500} offset={-100} className="cursor-pointer text-slate-600 hover:text-purple-700 font-headline font-bold tracking-tight py-2 border-b border-slate-100">Nosotros</Link>
           <Link to="servicios" onClick={() => setIsOpen(false)} smooth={true} duration={500} offset={-100} className="cursor-pointer text-slate-600 hover:text-purple-700 font-headline font-bold tracking-tight py-2 border-b border-slate-100">Servicios</Link>
+          <Link to="galeria" onClick={() => setIsOpen(false)} smooth={true} duration={500} offset={-100} className="cursor-pointer text-slate-600 hover:text-purple-700 font-headline font-bold tracking-tight py-2 border-b border-slate-100">Galería</Link>
+          <Link to="equipo" onClick={() => setIsOpen(false)} smooth={true} duration={500} offset={-100} className="cursor-pointer text-slate-600 hover:text-purple-700 font-headline font-bold tracking-tight py-2 border-b border-slate-100">Equipo</Link>
           <Link to="contacto" onClick={() => setIsOpen(false)} smooth={true} duration={500} offset={-100} className="cursor-pointer text-slate-600 hover:text-purple-700 font-headline font-bold tracking-tight py-2 border-b border-slate-100">Contacto</Link>
           <Link to="contacto" onClick={() => setIsOpen(false)} smooth={true} duration={500} offset={-100} className="cursor-pointer bg-primary text-center text-on-primary px-8 py-3 rounded-full font-bold transition-transform active:scale-95 mt-2 shadow-md">
             Cotizar
