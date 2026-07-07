@@ -15,13 +15,6 @@ export default function Team() {
       experience: '8+ años de experiencia. Identidades de marca y accesibilidad pedagógica.',
       image: '/andres.png',
       icon: 'palette'
-    },
-    {
-      name: 'Andrés Silva',
-      role: 'Desarrollador Full-Stack Senior',
-      experience: '6+ años de experiencia. Soluciones escalables e integración e-commerce.',
-      image: '/',
-      icon: 'code'
     }
   ];
 
