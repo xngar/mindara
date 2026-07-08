@@ -10,40 +10,39 @@ const inter = Inter({ subsets: ["latin"], display: 'swap', variable: '--font-int
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], display: 'swap', variable: '--font-jakarta', preload: true });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://sculpted.agency'),
+  metadataBase: new URL('https://www.mindara.cl'),
   title: {
-    default: "SculptedAgency | Agencia de Diseño Web y Estrategia Digital",
-    template: "%s | SculptedAgency"
+    default: "Mindara Chile | Desarrollo Web, Software y Diseño Gráfico",
+    template: "%s | Mindara"
   },
-  description: "Especialistas en diseño de productos digitales, desarrollo web de alta precisión y branding. Transformamos ideas en experiencias memorables.",
+  description: "Creamos software a medida, gestionamos tus redes sociales, potenciamos tu marca con publicidad digital y diseño gráfico profesional. Impulsa tu negocio con Mindara.",
   alternates: {
     canonical: '/',
   },
-  keywords: ["agencia digital", "diseño web", "productos digitales", "branding", "desarrollo web", "UX/UI"],
+  keywords: ["desarrollo de software", "diseño gráfico", "redes sociales", "manejo de instagram", "publicidad digital", "marketing digital", "desarrollo web Chile", "agencia digital Chile"],
   openGraph: {
-    title: "SculptedAgency | Agencia de Diseño Web y Estrategia Digital",
-    description: "Diseño de productos digitales y desarrollo web de alta precisión.",
-    url: "https://sculpted.agency",
-    siteName: "SculptedAgency",
-    locale: "es_ES",
+    title: "Mindara Chile | Desarrollo Web, Software y Diseño Gráfico",
+    description: "Software a medida, gestión de redes sociales, publicidad digital y diseño gráfico profesional para potenciar tu negocio.",
+    url: "https://www.mindara.cl",
+    siteName: "Mindara",
+    locale: "es_CL",
     type: "website",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "SculptedAgency Digital Excellence",
+        alt: "Mindara - Software, Redes Sociales y Diseño Gráfico",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SculptedAgency | Agencia de Diseño Web y Estrategia Digital",
-    description: "Diseño de productos digitales y desarrollo web de alta precisión.",
+    title: "Mindara Chile | Desarrollo Web, Software y Diseño Gráfico",
+    description: "Software a medida, gestión de redes sociales y diseño gráfico profesional para tu negocio.",
     images: ["/og-image.jpg"],
   },
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{
