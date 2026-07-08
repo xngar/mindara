@@ -5,16 +5,16 @@ export default function Team() {
     {
       name: 'Mauricio Zúñiga',
       role: 'Director de Tecnología & E-Learning',
-      experience: '15+ años de experiencia. Especialista en proyectos de innovación y arquitecturas corporativas. Experto en desarrollo de plataformas críticas para la minería, el sector público y privado.',
-      image: '/carlos.png',
+      experience: 'Lidera la estrategia tecnológica y de aprendizaje digital, con más de 15 años de experiencia en desarrollo frontend, diseño y e-learning.',
+      image: '/mauricio.png',
       icon: ''
     },
     {
       name: 'Gonzalo Peralta',
-      role: 'Líder de Diseño UX/UI & Multimedia',
-      experience: '8+ años de experiencia. Identidades de marca y accesibilidad pedagógica.',
-      image: '/andres.png',
-      icon: 'palette'
+      role: 'Líder de Diseño',
+      experience: 'Diseña experiencias visuales e interactivas centradas en el usuario, integrando creatividad y producción multimedia en cada proyecto.',
+      image: '/gonzalo.png',
+      icon: ''
     }
   ];
 
@@ -25,7 +25,7 @@ export default function Team() {
         {/* Encabezado: Título a la izquierda, Párrafo descriptivo a la derecha */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-24">
           <div className="lg:col-span-4 space-y-4">
-            <h2 className="text-5xl md:text-6xl font-headline font-black tracking-tight text-on-surface uppercase">
+            <h2 className="text-5xl md:text-6xl font-headline font-black tracking-tight text-on-surface ">
               Nuestro Equipo
             </h2>
             <div className="w-16 h-1 bg-primary rounded-full"></div>

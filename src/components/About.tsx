@@ -10,7 +10,7 @@ export default function About() {
         {/* Encabezado y Subencabezado */}
         <div className="space-y-4 max-w-4xl">
           <h2 className="text-4xl md:text-5xl font-headline font-extrabold text-on-surface leading-tight">
-            Potenciamos tu proyecto con <span className="text-primary">diseño</span> y <span className="text-tertiary">programación inteligente</span>
+            Potenciamos tu proyecto con <span className="text-primary">diseño</span> y <span className="text-primary">programación inteligente</span>
           </h2>
           <p className="text-xl md:text-2xl text-on-surface-variant font-medium leading-relaxed">
             19 años optimizando el aprendizaje corporativo
@@ -47,9 +47,9 @@ export default function About() {
             <div className="w-14 h-14 mb-6 rounded-2xl bg-green-50 flex items-center justify-center text-tertiary group-hover:scale-110 transition-transform duration-300">
               <span className="material-symbols-outlined text-3xl">eco</span>
             </div>
-            <h3 className="text-xl font-headline font-extrabold mb-3 text-on-surface group-hover:text-tertiary transition-colors">Sustentabilidad</h3>
+            <h3 className="text-xl font-headline font-extrabold mb-3 text-on-surface group-hover:text-tertiary transition-colors">Experiencia que Convierte</h3>
             <p className="text-on-surface-variant leading-relaxed text-sm">
-              Desarrollamos soluciones digitales amigables con el medio ambiente, reduciendo la huella de carbono y optimizando recursos.
+              Diseñamos interfaces intuitivas que mejoran la adopción de tus productos y la satisfacción de tus usuarios.
             </p>
           </div>
 
@@ -64,7 +64,7 @@ export default function About() {
             <div className="text-xs md:text-sm font-bold uppercase tracking-wider text-outline">Proyectos Exitosos</div>
           </div>
           <div className="flex flex-col items-center">
-            <div className="text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-tertiary to-primary mb-2">
+            <div className="text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary mb-2">
               <CountUp to={10} direction="up" duration={2} delay={0.5} className="inline-block" />+
             </div>
             <div className="text-xs md:text-sm font-bold uppercase tracking-wider text-outline">Años de Experiencia</div>
