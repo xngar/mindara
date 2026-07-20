@@ -38,10 +38,10 @@ export async function sendContactEmail(prevState: ActionState | null, formData: 
   if (!emailRegex.test(email)) {
     return { success: false, error: 'Por favor, introduce un correo electrónico válido.' };
   }
-
+// onboarding@resend.dev
   try {
     const { error } = await resend.emails.send({
-      from: 'onboarding@resend.dev',
+      from: 'consultas@mindara.cl', 
       to: 'mantonio.zr@gmail.com',
       subject: `MINDARA Contacto: ${subject}`,
       html: `
