@@ -6,14 +6,14 @@ export default function Team() {
       name: 'Mauricio Zúñiga',
       role: 'Director de Tecnología & E-Learning',
       experience: 'Lidera la estrategia tecnológica y de aprendizaje digital, con más de 15 años de experiencia en desarrollo frontend, diseño y e-learning.',
-      image: '/mauricio.png',
+      image: '/mauricio.webp',
       icon: ''
     },
     {
       name: 'Gonzalo Peralta',
       role: 'Líder de Diseño',
       experience: 'Diseña experiencias visuales e interactivas centradas en el usuario, integrando creatividad y producción multimedia en cada proyecto.',
-      image: '/gonzalo.png',
+      image: '/gonzalo.webp',
       icon: ''
     }
   ];
@@ -51,7 +51,7 @@ export default function Team() {
               <div className="relative w-48 h-48 mb-6 rounded-full overflow-hidden border border-outline/10 bg-surface-container-high shadow-md transition-all duration-500 group-hover:shadow-lg group-hover:scale-[1.02]">
                 <Image
                   src={member.image}
-                  alt=""
+                  alt={`Foto de perfil de ${member.name}`}
                   fill
                   sizes="192px"
                   className="object-cover grayscale transition-all duration-500 group-hover:grayscale-0"

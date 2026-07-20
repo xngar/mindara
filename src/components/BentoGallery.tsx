@@ -10,13 +10,13 @@ interface GalleryImage {
 }
 
 const images: GalleryImage[] = [
-  { src: '/001.png', alt: 'Proyecto 1' },
-  { src: '/002.png', alt: 'Proyecto 2' },
-  { src: '/003.png', alt: 'Proyecto 3' },
-  { src: '/004.png', alt: 'Proyecto 4' },
-  { src: '/005.png', alt: 'Proyecto 5' },
-  { src: '/006.png', alt: 'Proyecto 6' },
-  { src: '/007.png', alt: 'Proyecto 7' },
+  { src: '/001.webp', alt: 'Proyecto 1' },
+  { src: '/002.webp', alt: 'Proyecto 2' },
+  { src: '/003.webp', alt: 'Proyecto 3' },
+  { src: '/004.webp', alt: 'Proyecto 4' },
+  { src: '/005.webp', alt: 'Proyecto 5' },
+  { src: '/006.webp', alt: 'Proyecto 6' },
+  { src: '/007.webp', alt: 'Proyecto 7' },
 ];
 
 /**
@@ -86,9 +86,9 @@ function Lightbox({
             src={image.src}
             alt={image.alt}
             fill
-            sizes="100vw"
+            sizes="(max-width: 768px) 100vw, 80vw"
             className="object-contain"
-            priority
+            loading="eager"
           />
         </div>
       </div>
@@ -243,8 +243,15 @@ export default function BentoGallery() {
                 src={img.src}
                 alt={img.alt}
                 fill
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes={
+                  idx === 0
+                    ? '(max-width: 768px) 100vw, 50vw'   // 2×2 — ocupa la mitad del grid
+                    : idx === 3 || idx === 5
+                      ? '(max-width: 768px) 100vw, 50vw' // 2×1 — ocupa la mitad del grid
+                      : '(max-width: 768px) 100vw, 25vw' // 1×1 — ocupa un cuarto del grid
+                }
                 className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                loading={idx === 0 ? 'eager' : 'lazy'}
               />
 
               {/* Overlay degradado */}

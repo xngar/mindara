@@ -28,10 +28,10 @@ export default function Hero() {
           <Image
             alt="Personaje 3D de Smart Brain sosteniendo una laptop y celebrando"
             className="relative w-full h-auto drop-shadow-2xl object-contain"
-            src="/personaje.png"
+            src="/personaje.webp"
             fill
             priority
-            sizes="(max-width: 768px) 100vw, 50vw"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 640px"
           />
         </div>
       </div>

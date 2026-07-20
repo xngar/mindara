@@ -12,9 +12,8 @@ export default function Home() {
   return (
     <>
       <main>
-        <Reveal>
-          <Hero />
-        </Reveal>
+        {/* Hero sin Reveal para garantizar LCP óptimo — el contenido debe ser visible desde SSR */}
+        <Hero />
         <Reveal delay={0.1}>
           <About />
         </Reveal>

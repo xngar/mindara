@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-mindara.jpg",
         width: 1200,
         height: 630,
         alt: "Mindara - Software, Redes Sociales y Diseño Gráfico",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Mindara Chile | Desarrollo Web, Software y Diseño Gráfico",
     description: "Software a medida, gestión de redes sociales y diseño gráfico profesional para tu negocio.",
-    images: ["/og-image.jpg"],
+    images: ["/og-mindara.jpg"],
   },
 };
 export default function RootLayout({
@@ -51,13 +51,12 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "SculptedAgency",
-    "url": "https://sculpted.agency",
-    "logo": "https://sculpted.agency/logo.png",
-    "description": "Agencia boutique especializada en diseño de productos digitales y estrategia.",
+    "name": "Mindara",
+    "url": "https://www.mindara.cl",
+    "logo": "https://www.mindara.cl/og-mindara.jpg",
+    "description": "Agencia digital chilena especializada en desarrollo de software a medida, diseño gráfico, gestión de redes sociales y publicidad digital.",
     "sameAs": [
-      "https://linkedin.com/company/sculptedagency",
-      "https://instagram.com/sculptedagency"
+      "https://www.instagram.com/mindara.cl"
     ]
   };
 
@@ -67,6 +66,8 @@ export default function RootLayout({
         {/* Preconnect to Google Fonts for faster DNS/TLS — non-blocking */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Preload hero image para mejorar LCP */}
+        <link rel="preload" as="image" href="/personaje.webp" type="image/webp" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
