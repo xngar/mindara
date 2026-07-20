@@ -4,8 +4,8 @@ import { Resend } from 'resend';
 
 // Inicializar Resend. Intentar primero con la variable de entorno,
 // y si no existe (por ejemplo, en desarrollo sin recargar), usar la proporcionada por el usuario.
-const apiKey = process.env.RESEND_API_KEY || 're_iujp2vB6_Fo3BrARgtGFxT17tTaEEwe49';
-const resend = new Resend(apiKey);
+const apiKey = process.env.RESEND_API_KEY;
+
 
 export type ActionState = {
   success: boolean;
@@ -33,6 +33,13 @@ export async function sendContactEmail(prevState: ActionState | null, formData: 
     return { success: false, error: 'Por favor, introduce el mensaje.' };
   }
 
+  // Verificar que la clave API está configurada
+  if (!apiKey) {
+    console.error('Clave API de Resend no está configurada.');
+    return { success: false, error: 'Clave API de Resend no está configurada.' };
+  }
+
+  const resend = new Resend(apiKey);
   // Expresión regular básica para validar el correo
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
