@@ -2,11 +2,6 @@
 
 import { Resend } from 'resend';
 
-// Inicializar Resend. Intentar primero con la variable de entorno,
-// y si no existe (por ejemplo, en desarrollo sin recargar), usar la proporcionada por el usuario.
-const apiKey = process.env.RESEND_API_KEY;
-
-
 export type ActionState = {
   success: boolean;
   message?: string;
@@ -33,22 +28,27 @@ export async function sendContactEmail(prevState: ActionState | null, formData: 
     return { success: false, error: 'Por favor, introduce el mensaje.' };
   }
 
-  // Verificar que la clave API está configurada
-  if (!apiKey) {
-    console.error('Clave API de Resend no está configurada.');
-    return { success: false, error: 'Clave API de Resend no está configurada.' };
-  }
-
-  const resend = new Resend(apiKey);
   // Expresión regular básica para validar el correo
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
     return { success: false, error: 'Por favor, introduce un correo electrónico válido.' };
   }
-// onboarding@resend.dev
+
+  // Obtener la clave API desde las variables de entorno (NUNCA hardcodeada)
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    console.error('RESEND_API_KEY no está definida en las variables de entorno.');
+    return {
+      success: false,
+      error: 'El servicio de correo no está configurado correctamente. Por favor, contacta al administrador.',
+    };
+  }
+
+  const resend = new Resend(apiKey);
+
   try {
     const { error } = await resend.emails.send({
-      from: 'consultas@mindara.cl', 
+      from: 'consultas@mindara.cl',
       to: 'mantonio.zr@gmail.com',
       subject: `MINDARA Contacto: ${subject}`,
       html: `
@@ -68,21 +68,21 @@ export async function sendContactEmail(prevState: ActionState | null, formData: 
 
     if (error) {
       console.error('Error de Resend:', error);
-      return { 
-        success: false, 
-        error: `No se pudo enviar el correo: ${error.message}` 
+      return {
+        success: false,
+        error: `No se pudo enviar el correo: ${error.message}`,
       };
     }
 
-    return { 
-      success: true, 
-      message: '¡Mensaje enviado con éxito! Nos pondremos en contacto contigo lo antes posible.' 
+    return {
+      success: true,
+      message: '¡Mensaje enviado con éxito! Nos pondremos en contacto contigo lo antes posible.',
     };
   } catch (err: any) {
     console.error('Excepción al enviar con Resend:', err);
-    return { 
-      success: false, 
-      error: 'Ocurrió un error inesperado al procesar tu solicitud. Por favor, inténtalo de nuevo.' 
+    return {
+      success: false,
+      error: 'Ocurrió un error inesperado al procesar tu solicitud. Por favor, inténtalo de nuevo.',
     };
   }
 }
