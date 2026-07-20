@@ -44,12 +44,16 @@ export async function sendContactEmail(prevState: ActionState | null, formData: 
     };
   }
 
+  // Opciones de remitente y receptor desde variables de entorno (opcionales)
+  const contactFrom = process.env.CONTACT_FROM || 'consultas@mindara.cl';
+  const contactTo = process.env.CONTACT_TO || 'mantonio.zr@gmail.com';
+
   const resend = new Resend(apiKey);
 
   try {
     const { error } = await resend.emails.send({
-      from: 'consultas@mindara.cl',
-      to: 'mantonio.zr@gmail.com',
+      from: contactFrom,
+      to: contactTo,
       subject: `MINDARA Contacto: ${subject}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e9ed; border-radius: 12px; background-color: #f7fafc; color: #2c3437;">
