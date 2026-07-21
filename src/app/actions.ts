@@ -46,7 +46,14 @@ export async function sendContactEmail(prevState: ActionState | null, formData: 
 
   // Opciones de remitente y receptor desde variables de entorno (opcionales)
   const contactFrom = process.env.CONTACT_FROM || 'consultas@mindara.cl';
-  const contactTo = process.env.CONTACT_TO || 'mantonio.zr@gmail.com';
+  const contactTo = Array.from(
+    new Set(
+      `${process.env.CONTACT_TO || 'mantonio.zr@gmail.com'},gonzaloandr@gmail.com`
+        .split(',')
+        .map((email) => email.trim())
+        .filter(Boolean)
+    )
+  );
 
   const resend = new Resend(apiKey);
 
