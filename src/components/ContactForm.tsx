@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useActionState, useState, useEffect } from 'react';
-import { sendContactEmail } from '@/app/actions';
+import { useActionState, useState, useEffect } from "react";
+import { sendContactEmail } from "@/app/actions";
 
 export default function ContactForm() {
   const [state, formAction, pending] = useActionState(sendContactEmail, null);
@@ -23,13 +23,16 @@ export default function ContactForm() {
         <div className="bg-surface-container-lowest rounded-xl p-12 clay-shadow transition-all duration-500">
           {isSubmitted ? (
             <div className="text-center py-12 flex flex-col items-center justify-center space-y-6">
-              <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center text-primary animate-bounce">
+              {/* <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center text-primary animate-bounce">
                 <span className="material-symbols-outlined text-5xl">check_circle</span>
-              </div>
+              </div> */}
               <div className="space-y-2">
-                <h3 className="text-3xl font-headline font-extrabold text-on-surface">¡Mensaje Enviado!</h3>
+                <h3 className="text-3xl font-headline font-extrabold text-on-surface">
+                  ¡Mensaje Enviado!
+                </h3>
                 <p className="text-on-surface-variant max-w-md mx-auto">
-                  {state?.message || 'Hemos recibido tu mensaje correctamente. Nos pondremos en contacto contigo lo antes posible.'}
+                  {state?.message ||
+                    "Hemos recibido tu mensaje correctamente. Nos pondremos en contacto contigo lo antes posible."}
                 </p>
               </div>
               <button
@@ -42,21 +45,32 @@ export default function ContactForm() {
           ) : (
             <>
               <div className="text-center mb-12">
-                <h2 className="text-4xl font-headline font-extrabold text-on-surface mb-4">Hablemos de tu Proyecto</h2>
-                <p className="text-on-surface-variant">Estamos listos para darle forma a tus ideas.</p>
+                <h2 className="text-4xl font-headline font-extrabold text-on-surface mb-4">
+                  Hablemos de tu Proyecto
+                </h2>
+                <p className="text-on-surface-variant">
+                  Estamos listos para darle forma a tus ideas.
+                </p>
               </div>
-              
+
               <form action={formAction} className="space-y-6">
                 {state?.error && (
                   <div className="p-4 bg-error/10 border border-error/20 text-error rounded-lg flex items-start gap-3">
-                    <span className="material-symbols-outlined text-xl flex-shrink-0">error</span>
+                    <span className="material-symbols-outlined text-xl flex-shrink-0">
+                      error
+                    </span>
                     <span className="text-sm font-medium">{state.error}</span>
                   </div>
                 )}
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2 flex flex-col">
-                    <label htmlFor="name" className="text-sm font-bold text-on-surface px-1">Nombre</label>
+                    <label
+                      htmlFor="name"
+                      className="text-sm font-bold text-on-surface px-1"
+                    >
+                      Nombre
+                    </label>
                     <input
                       id="name"
                       name="name"
@@ -67,7 +81,12 @@ export default function ContactForm() {
                     />
                   </div>
                   <div className="space-y-2 flex flex-col">
-                    <label htmlFor="email" className="text-sm font-bold text-on-surface px-1">Email</label>
+                    <label
+                      htmlFor="email"
+                      className="text-sm font-bold text-on-surface px-1"
+                    >
+                      Email
+                    </label>
                     <input
                       id="email"
                       name="email"
@@ -79,7 +98,12 @@ export default function ContactForm() {
                   </div>
                 </div>
                 <div className="space-y-2 flex flex-col">
-                  <label htmlFor="subject" className="text-sm font-bold text-on-surface px-1">Asunto</label>
+                  <label
+                    htmlFor="subject"
+                    className="text-sm font-bold text-on-surface px-1"
+                  >
+                    Asunto
+                  </label>
                   <input
                     id="subject"
                     name="subject"
@@ -90,7 +114,12 @@ export default function ContactForm() {
                   />
                 </div>
                 <div className="space-y-2 flex flex-col">
-                  <label htmlFor="message" className="text-sm font-bold text-on-surface px-1">Mensaje</label>
+                  <label
+                    htmlFor="message"
+                    className="text-sm font-bold text-on-surface px-1"
+                  >
+                    Mensaje
+                  </label>
                   <textarea
                     id="message"
                     name="message"
@@ -107,14 +136,30 @@ export default function ContactForm() {
                 >
                   {pending ? (
                     <>
-                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-on-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      <svg
+                        className="animate-spin -ml-1 mr-3 h-5 w-5 text-on-primary"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        ></path>
                       </svg>
                       Enviando...
                     </>
                   ) : (
-                    'Enviar Mensaje'
+                    "Enviar Mensaje"
                   )}
                 </button>
               </form>
