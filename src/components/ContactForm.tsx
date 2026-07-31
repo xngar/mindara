@@ -240,6 +240,7 @@ export default function ContactForm() {
                   ></textarea>
                 </div>
 
+                {/*
                 <div className="space-y-2 flex flex-col">
                   <label className="text-sm font-bold text-on-surface px-1">
                     Verificación de seguridad
@@ -256,7 +257,8 @@ export default function ContactForm() {
                   {turnstileError && (
                     <p className="text-sm text-error">{turnstileError}</p>
                   )}
-                </div>
+                </div> 
+                */}
 
                 <button
                   className="w-full bg-primary text-on-primary py-5 rounded-xl font-bold text-lg hover:shadow-lg transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
