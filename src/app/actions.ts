@@ -13,7 +13,6 @@ export async function sendContactEmail(prevState: ActionState | null, formData: 
   const email = formData.get('email') as string;
   const subject = formData.get('subject') as string;
   const message = formData.get('message') as string;
-  const turnstileToken = formData.get('turnstileToken') as string;
 
   if (!name || !name.trim()) {
     return { success: false, error: 'Por favor, introduce tu nombre.' };
@@ -27,47 +26,6 @@ export async function sendContactEmail(prevState: ActionState | null, formData: 
   if (!message || !message.trim()) {
     return { success: false, error: 'Por favor, introduce el mensaje.' };
   }
-  if (!turnstileToken || !turnstileToken.trim()) {
-    return { success: false, error: 'Completa la verificación de seguridad.' };
-  }
-
-  const secretKey = process.env.TURNSTILE_SECRET_KEY;
-  if (!secretKey) {
-    console.error('TURNSTILE_SECRET_KEY no está definida en las variables de entorno.');
-    return {
-      success: false,
-      error: 'La verificación de seguridad no está configurada correctamente.',
-    };
-  }
-
-  try {
-    const verificationResponse = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: new URLSearchParams({
-        secret: secretKey,
-        response: turnstileToken,
-      }).toString(),
-    });
-
-    const verification = await verificationResponse.json() as { success?: boolean };
-    if (!verificationResponse.ok || !verification.success) {
-      console.error('Falló la verificación de Turnstile:', verification);
-      return {
-        success: false,
-        error: 'La verificación de seguridad falló. Inténtalo de nuevo.',
-      };
-    }
-  } catch (error) {
-    console.error('Error al verificar Turnstile:', error);
-    return {
-      success: false,
-      error: 'No se pudo completar la verificación de seguridad. Inténtalo de nuevo.',
-    };
-  }
-
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
     return { success: false, error: 'Por favor, introduce un correo electrónico válido.' };
@@ -126,7 +84,7 @@ export async function sendContactEmail(prevState: ActionState | null, formData: 
       success: true,
       message: '¡Mensaje enviado con éxito! Nos pondremos en contacto contigo lo antes posible.',
     };
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error('Excepción al enviar con Resend:', err);
     return {
       success: false,

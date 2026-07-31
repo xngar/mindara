@@ -1,136 +1,20 @@
 "use client";
 
-import {
-  useActionState,
-  useState,
-  useEffect,
-  useRef,
-  type FormEvent,
-} from "react";
+import { useActionState } from "react";
 import { sendContactEmail } from "@/app/actions";
-
-declare global {
-  interface Window {
-    turnstile?: {
-      render: (
-        container: HTMLElement,
-        options: Record<string, unknown>,
-      ) => string;
-      reset: (widgetId?: string) => void;
-    };
-  }
-}
 
 export default function ContactForm() {
   const [state, formAction, pending] = useActionState(sendContactEmail, null);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [turnstileToken, setTurnstileToken] = useState("");
-  const [turnstileError, setTurnstileError] = useState("");
-  const [widgetId, setWidgetId] = useState<string | null>(null);
-  const widgetRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if (state?.success) {
-      setIsSubmitted(true);
-      setTurnstileToken("");
-      setTurnstileError("");
-      if (widgetId && typeof window !== "undefined" && window.turnstile) {
-        window.turnstile.reset(widgetId);
-      }
-    }
-  }, [state, widgetId]);
-
-  useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
-
-    const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
-    if (!siteKey) {
-      setTurnstileError(
-        "Falta NEXT_PUBLIC_TURNSTILE_SITE_KEY para el captcha.",
-      );
-      return;
-    }
-
-    const existingScript = document.querySelector(
-      'script[src*="challenges.cloudflare.com/turnstile"]',
-    );
-
-    if (!existingScript) {
-      const script = document.createElement("script");
-      script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
-      script.async = true;
-      script.defer = true;
-      script.onload = () => {
-        window.dispatchEvent(new Event("turnstile-ready"));
-      };
-      document.body.appendChild(script);
-    }
-
-    const renderWidget = () => {
-      if (!widgetRef.current || !window.turnstile || widgetId) {
-        return;
-      }
-
-      const id = window.turnstile.render(widgetRef.current, {
-        sitekey: siteKey,
-        callback: (token: string) => {
-          setTurnstileToken(token);
-          setTurnstileError("");
-        },
-        "expired-callback": () => {
-          setTurnstileToken("");
-          setTurnstileError("El captcha ha expirado. Inténtalo otra vez.");
-        },
-        "error-callback": () => {
-          setTurnstileToken("");
-          setTurnstileError("No se pudo cargar la verificación de seguridad.");
-        },
-      });
-
-      setWidgetId(id);
-    };
-
-    if (window.turnstile) {
-      renderWidget();
-      return;
-    }
-
-    const onReady = () => {
-      renderWidget();
-    };
-
-    window.addEventListener("turnstile-ready", onReady);
-    return () => {
-      window.removeEventListener("turnstile-ready", onReady);
-    };
-  }, [widgetId]);
 
   const handleSendAnother = () => {
-    setIsSubmitted(false);
-    setTurnstileToken("");
-    setTurnstileError("");
-    if (widgetId && typeof window !== "undefined" && window.turnstile) {
-      window.turnstile.reset(widgetId);
-    }
-  };
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    if (!turnstileToken) {
-      event.preventDefault();
-      setTurnstileError("Por favor, completa la verificación de seguridad.");
-      return;
-    }
-
-    setTurnstileError("");
+    window.location.reload();
   };
 
   return (
     <section id="contacto" className="py-32 bg-surface-container-low">
       <div className="max-w-4xl mx-auto px-8">
         <div className="bg-surface-container-lowest rounded-xl p-12 clay-shadow transition-all duration-500">
-          {isSubmitted ? (
+          {state?.success ? (
             <div className="text-center py-12 flex flex-col items-center justify-center space-y-6">
               <div className="space-y-2">
                 <h3 className="text-3xl font-headline font-extrabold text-on-surface">
@@ -159,11 +43,7 @@ export default function ContactForm() {
                 </p>
               </div>
 
-              <form
-                action={formAction}
-                onSubmit={handleSubmit}
-                className="space-y-6"
-              >
+              <form action={formAction} className="space-y-6">
                 {state?.error && (
                   <div className="p-4 bg-error/10 border border-error/20 text-error rounded-lg flex items-start gap-3">
                     <span className="material-symbols-outlined text-xl shrink-0">
@@ -240,30 +120,10 @@ export default function ContactForm() {
                   ></textarea>
                 </div>
 
-                {/*
-                <div className="space-y-2 flex flex-col">
-                  <label className="text-sm font-bold text-on-surface px-1">
-                    Verificación de seguridad
-                  </label>
-                  <div
-                    ref={widgetRef}
-                    className="min-h-[76px] flex items-center justify-center rounded-lg bg-surface-container-low px-4 py-3 border border-primary/10"
-                  />
-                  <input
-                    type="hidden"
-                    name="turnstileToken"
-                    value={turnstileToken}
-                  />
-                  {turnstileError && (
-                    <p className="text-sm text-error">{turnstileError}</p>
-                  )}
-                </div> 
-                */}
-
                 <button
                   className="w-full bg-primary text-on-primary py-5 rounded-xl font-bold text-lg hover:shadow-lg transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
                   type="submit"
-                  disabled={pending || !turnstileToken}
+                  disabled={pending}
                 >
                   {pending ? (
                     <>
