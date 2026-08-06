@@ -9,20 +9,27 @@ interface RevealProps {
 
 function Reveal({ children, delay = 0, className = "" }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState<boolean>(() => {
+    if (typeof window === "undefined") {
+      return false;
+    }
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return true;
+    }
+
+    if (typeof window.IntersectionObserver === "undefined") {
+      return true;
+    }
+
+    return false;
+  });
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mediaQuery.matches) {
-      setIsVisible(true);
-      return;
-    }
-
-    if (typeof window.IntersectionObserver === "undefined") {
-      setIsVisible(true);
+    if (isVisible) {
       return;
     }
 
@@ -38,7 +45,7 @@ function Reveal({ children, delay = 0, className = "" }: RevealProps) {
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [isVisible]);
 
   return (
     <div
