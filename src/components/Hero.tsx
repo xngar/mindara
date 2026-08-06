@@ -22,13 +22,19 @@ export default function Hero() {
           mediante diseño centrado en el usuario y desarrollo de alta precisión.
         </p>
         <div className="flex flex-wrap gap-4">
-          <button className="bg-primary text-on-primary px-10 py-5 rounded-xl font-bold text-lg hover:shadow-[0_20px_50px_rgba(107,70,193,0.3)] transition-all flex items-center gap-2">
-            Comenzar
+          <a
+            href="#contacto"
+            className="inline-flex items-center gap-2 bg-primary text-on-primary px-10 py-5 rounded-xl font-bold text-lg hover:shadow-[0_20px_50px_rgba(107,70,193,0.3)] transition-all"
+          >
+            Cotizar Proyecto
             <span className="material-symbols-outlined">arrow_forward</span>
-          </button>
-          <button className="bg-surface-container-low text-on-surface px-10 py-5 rounded-xl font-bold text-lg hover:bg-surface-container-high transition-all">
+          </a>
+          <a
+            href="#galeria"
+            className="inline-flex items-center justify-center bg-surface-container-low text-on-surface px-10 py-5 rounded-xl font-bold text-lg hover:bg-surface-container-high transition-all"
+          >
             Ver Portafolio
-          </button>
+          </a>
         </div>
       </div>
       <div className="relative group w-full max-w-[560px] mx-auto">
