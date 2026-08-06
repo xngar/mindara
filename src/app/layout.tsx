@@ -4,6 +4,7 @@ import "./globals.css";
 import TopNavBar from "../components/TopNavBar";
 import Footer from "../components/Footer";
 import WhatsAppButton from "../components/WhatsAppButton";
+import FontLoader from "../components/FontLoader";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -107,6 +108,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <WhatsAppButton />
+        <FontLoader />
       </body>
     </html>
   );
