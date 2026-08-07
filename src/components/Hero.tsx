@@ -1,7 +1,40 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect, useRef } from "react";
 import TextType from "./TextType";
 
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+
+    if (!video) {
+      return;
+    }
+
+    let playCount = 0;
+
+    const handleEnded = () => {
+      playCount += 1;
+
+      if (playCount >= 2) {
+        video.pause();
+        return;
+      }
+
+      video.currentTime = 0;
+      video.play().catch(() => undefined);
+    };
+
+    video.addEventListener("ended", handleEnded);
+    video.play().catch(() => undefined);
+
+    return () => {
+      video.removeEventListener("ended", handleEnded);
+    };
+  }, []);
+
   return (
     <section
       id="inicio"
@@ -37,22 +70,45 @@ export default function Hero() {
           </a>
         </div>
       </div>
-      <div className="relative group w-full max-w-[560px] mx-auto">
-        <div className="absolute -inset-4 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors"></div>
-        <div className="relative aspect-square w-full">
-          <Image
-            alt="Personaje 3D de Smart Brain sosteniendo una laptop y celebrando"
-            className="w-full h-full drop-shadow-2xl object-contain"
-            src="/personaje.webp"
-            width={640}
-            height={640}
-            priority
-            fetchPriority="high"
-            quality={60}
-            sizes="(max-width: 640px) 85vw, (max-width: 1024px) 45vw, 560px"
+      <div className="relative group w-full max-w-140 mx-auto">
+        <div className="absolute -inset-4 rounded-full bg-primary/10 blur-3xl transition-all duration-500 group-hover:scale-110 group-hover:bg-primary/20"></div>
+        <div className="absolute inset-6 rounded-[2rem] border border-primary/15 bg-gradient-to-br from-white/10 via-transparent to-primary/10 backdrop-blur-sm"></div>
+        <div className="relative aspect-square w-full overflow-hidden rounded-4xl border border-white/15 bg-surface-container-low/70 shadow-[0_24px_80px_rgba(15,23,42,0.16)] ring-1 ring-primary/10">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.28),transparent_38%)]"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-transparent"></div>
+          <div className="absolute inset-3 rounded-[1.5rem] border border-white/10"></div>
+          <video
+            ref={videoRef}
+            className="absolute inset-0 h-full w-full object-cover"
+            src="/intro_personaje.mp4"
+            poster="/personaje.webp"
+            autoPlay
+            muted
+            playsInline
+            preload="auto"
+            controls={false}
+            style={{
+              animation: "hero-video-in 900ms ease-out both",
+              filter: "saturate(1.08) contrast(1.03)",
+              transform: "scale(1.02)",
+              objectPosition: "center",
+            }}
           />
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes hero-video-in {
+          0% {
+            opacity: 0;
+            transform: scale(1.04) translateY(10px);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+          }
+        }
+      `}</style>
     </section>
   );
 }
