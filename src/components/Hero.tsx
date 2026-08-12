@@ -42,17 +42,16 @@ export default function Hero() {
     >
       <div className="space-y-8">
         <h1 className="text-5xl md:text-7xl font-headline font-extrabold text-on-surface leading-[1.1] tracking-tight">
-          Diseñamos{" "}
+          Transformamos tu Empresa con{" "}
           <TextType
-            text="Productos Digitales"
+            text="Desarrollo Web"
             as="span"
             className="text-primary font-extrabold"
           />{" "}
-          Excepcionales
+          y Diseño Gráfico
         </h1>
         <p className="text-xl text-on-surface-variant max-w-xl leading-relaxed">
-          Transformamos ideas audaces en experiencias digitales memorables
-          mediante diseño centrado en el usuario y desarrollo de alta precisión.
+          Agencia digital en Chile especializada en desarrollo de software a medida, gestión de redes sociales y diseño UI/UX. Creamos soluciones tecnológicas precisas para hacer crecer tu negocio.
         </p>
         <div className="flex flex-wrap gap-4">
           <a

@@ -53,7 +53,7 @@ const services = [
   {
     id: 1,
     title: "Gestión de Redes Sociales",
-    description: "Transformamos tu presencia digital. Creamos, gestionamos y potenciamos tu contenido para conectar con tu audiencia, aumentar tu comunidad y convertir seguidores en clientes fieles.",
+    description: "Agencia de Redes Sociales en Chile. Creamos, gestionamos y potenciamos tu contenido para conectar con tu audiencia, aumentar tu comunidad y convertir seguidores en clientes fieles.",
     bgColor: "bg-secondary-container",
     iconColor: "text-primary",
     hoverColor: "group-hover:text-primary",
@@ -79,7 +79,7 @@ const services = [
   },
   {
     id: 4,
-    title: "Diseño y Desarrollo Digital",
+    title: "Desarrollo Web y Software a Medida",
     description: "Transformamos ideas en productos digitales de alto impacto. Fusionamos diseño UX/UI estratégico con desarrollo robusto para crear plataformas intuitivas, ultra rápidas y listas para convertir.",
     bgColor: "bg-blue-100",
     iconColor: "text-blue-600",
@@ -97,7 +97,7 @@ const services = [
   },
   {
     id: 6,
-    title: "eCommerce",
+    title: "Desarrollo de eCommerce",
     description: "Tiendas online optimizadas para vender más y ofrecer un proceso de compra impecable.",
     bgColor: "bg-pink-100",
     iconColor: "text-pink-600",

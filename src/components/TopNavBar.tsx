@@ -26,9 +26,9 @@ export default function TopNavBar() {
       <div className="flex justify-between items-center px-6 md:px-8 py-3">
         <div className="text-2xl md:text-4xl font-black text-purple-700 font-headline tracking-tight text-center">
           MINDARA<br></br>{" "}
-          <h3 className="text-[1rem] mt-1 tracking-wider">
+          <span className="block text-[1rem] mt-1 tracking-wider">
             Innovación y Desarrollo
-          </h3>
+          </span>
         </div>
 
         <div className="hidden md:flex items-center space-x-1">

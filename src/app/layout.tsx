@@ -72,16 +72,24 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Mindara",
-    url: "https://www.mindara.cl",
-    logo: "https://www.mindara.cl/og-mindara.jpg",
-    description:
-      "Agencia digital chilena especializada en desarrollo de software a medida, diseño gráfico, gestión de redes sociales y publicidad digital.",
-    sameAs: ["https://www.instagram.com/mindara.cl"],
-  };
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Mindara",
+      url: "https://www.mindara.cl",
+      logo: "https://www.mindara.cl/og-mindara.jpg",
+      description:
+        "Agencia digital chilena especializada en desarrollo de software a medida, diseño gráfico, gestión de redes sociales y publicidad digital.",
+      sameAs: ["https://www.instagram.com/mindara.cl"],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "Mindara",
+      url: "https://www.mindara.cl",
+    }
+  ];
 
   return (
     <html lang="es" className={`${inter.variable} ${jakarta.variable}`}>

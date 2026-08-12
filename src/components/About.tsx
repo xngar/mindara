@@ -56,12 +56,12 @@ export default function About() {
         {/* Encabezado y Subencabezado */}
         <div className="space-y-4 max-w-4xl">
           <h2 className="text-4xl md:text-5xl font-headline font-extrabold text-on-surface leading-tight">
-            Potenciamos tu proyecto con{" "}
-            <span className="text-primary">diseño</span> y{" "}
-            <span className="text-primary">programación inteligente</span>
+            Potenciamos tu marca con{" "}
+            <span className="text-primary">diseño estratégico</span> y{" "}
+            <span className="text-primary">desarrollo de software a medida</span>
           </h2>
           <p className="text-xl md:text-2xl text-on-surface-variant font-medium leading-relaxed">
-            19 años optimizando el aprendizaje corporativo
+            Más de 10 años impulsando la transformación digital de empresas en Chile y Latinoamérica.
           </p>
         </div>
 
