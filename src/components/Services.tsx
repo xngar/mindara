@@ -112,14 +112,9 @@ const IconShoppingBag = () => (
 const services = [
   {
     id: 1,
-<<<<<<< HEAD
     title: "Capacitación y Contenido Interactivo",
     description:
       "Diseñamos cursos por módulos, videos explicativos, infografías HSE y procedimientos técnicos para convertir información compleja en aprendizaje claro, visual y accionable.",
-=======
-    title: "Gestión de Redes Sociales",
-    description: "Agencia de Redes Sociales en Chile. Creamos, gestionamos y potenciamos tu contenido para conectar con tu audiencia, aumentar tu comunidad y convertir seguidores en clientes fieles.",
->>>>>>> 70cc74d7eec4a73b46906c5d28a7bcc250654d4e
     bgColor: "bg-secondary-container",
     iconColor: "text-primary",
     hoverColor: "group-hover:text-primary",
@@ -147,14 +142,9 @@ const services = [
   },
   {
     id: 4,
-<<<<<<< HEAD
     title: "Presencia Digital para Empresas",
     description:
       "Creamos sitios web, interfaces y herramientas internas que conectan a tus equipos, clientes y procesos con una experiencia moderna y fácil de usar.",
-=======
-    title: "Desarrollo Web y Software a Medida",
-    description: "Transformamos ideas en productos digitales de alto impacto. Fusionamos diseño UX/UI estratégico con desarrollo robusto para crear plataformas intuitivas, ultra rápidas y listas para convertir.",
->>>>>>> 70cc74d7eec4a73b46906c5d28a7bcc250654d4e
     bgColor: "bg-blue-100",
     iconColor: "text-blue-600",
     hoverColor: "group-hover:text-blue-600",
@@ -173,12 +163,8 @@ const services = [
   {
     id: 6,
     title: "Desarrollo de eCommerce",
-<<<<<<< HEAD
     description:
       "Tiendas online optimizadas para vender más y ofrecer un proceso de compra impecable.",
-=======
-    description: "Tiendas online optimizadas para vender más y ofrecer un proceso de compra impecable.",
->>>>>>> 70cc74d7eec4a73b46906c5d28a7bcc250654d4e
     bgColor: "bg-pink-100",
     iconColor: "text-pink-600",
     hoverColor: "group-hover:text-pink-600",

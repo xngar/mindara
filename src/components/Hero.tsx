@@ -42,7 +42,6 @@ export default function Hero() {
     >
       <div className="space-y-8">
         <h1 className="text-5xl md:text-7xl font-headline font-extrabold text-on-surface leading-[1.1] tracking-tight">
-<<<<<<< HEAD
           Capacitación, señalética y{" "}
           <TextType
             text="soluciones digitales"
@@ -55,18 +54,6 @@ export default function Hero() {
           Transformamos información técnica y operativa en cursos, videos,
           material visual, documentación CAD y herramientas digitales que las
           personas pueden comprender y utilizar.
-=======
-          Transformamos tu Empresa con{" "}
-          <TextType
-            text="Desarrollo Web"
-            as="span"
-            className="text-primary font-extrabold"
-          />{" "}
-          y Diseño Gráfico
-        </h1>
-        <p className="text-xl text-on-surface-variant max-w-xl leading-relaxed">
-          Agencia digital en Chile especializada en desarrollo de software a medida, gestión de redes sociales y diseño UI/UX. Creamos soluciones tecnológicas precisas para hacer crecer tu negocio.
->>>>>>> 70cc74d7eec4a73b46906c5d28a7bcc250654d4e
         </p>
         <div className="flex flex-wrap gap-4">
           <a

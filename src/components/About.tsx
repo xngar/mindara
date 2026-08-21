@@ -56,7 +56,6 @@ export default function About() {
         {/* Encabezado y Subencabezado */}
         <div className="space-y-4 max-w-4xl">
           <h2 className="text-4xl md:text-5xl font-headline font-extrabold text-on-surface leading-tight">
-<<<<<<< HEAD
             Convertimos información compleja en{" "}
             <span className="text-primary">experiencias claras</span> para
             capacitar, orientar y trabajar con mayor seguridad.
@@ -65,14 +64,6 @@ export default function About() {
             En Mindara combinamos experiencia en capacitación y señalética con
             diseño audiovisual, documentación técnica CAD/3D y desarrollo
             digital para empresas de Chile.
-=======
-            Potenciamos tu marca con{" "}
-            <span className="text-primary">diseño estratégico</span> y{" "}
-            <span className="text-primary">desarrollo de software a medida</span>
-          </h2>
-          <p className="text-xl md:text-2xl text-on-surface-variant font-medium leading-relaxed">
-            Más de 10 años impulsando la transformación digital de empresas en Chile y Latinoamérica.
->>>>>>> 70cc74d7eec4a73b46906c5d28a7bcc250654d4e
           </p>
         </div>
 
