@@ -56,12 +56,14 @@ export default function About() {
         {/* Encabezado y Subencabezado */}
         <div className="space-y-4 max-w-4xl">
           <h2 className="text-4xl md:text-5xl font-headline font-extrabold text-on-surface leading-tight">
-            Potenciamos tu marca con{" "}
-            <span className="text-primary">diseño estratégico</span> y{" "}
-            <span className="text-primary">desarrollo de software a medida</span>
+            Convertimos información compleja en{" "}
+            <span className="text-primary">experiencias claras</span> para
+            capacitar, orientar y trabajar con mayor seguridad.
           </h2>
           <p className="text-xl md:text-2xl text-on-surface-variant font-medium leading-relaxed">
-            Más de 10 años impulsando la transformación digital de empresas en Chile y Latinoamérica.
+            En Mindara combinamos experiencia en capacitación y señalética con
+            diseño audiovisual, documentación técnica CAD/3D y desarrollo
+            digital para empresas de Chile.
           </p>
         </div>
 
@@ -73,11 +75,11 @@ export default function About() {
               <IconTrendingUp />
             </div>
             <h3 className="text-xl font-headline font-extrabold mb-3 text-on-surface group-hover:text-primary transition-colors">
-              Estrategia Integral
+              Claridad técnica
             </h3>
             <p className="text-on-surface-variant leading-relaxed text-sm">
-              Desde el concepto hasta la ejecución operativa, asegurando un
-              camino claro y estructurado hacia el éxito.
+              Ordenamos conceptos, procedimientos y riesgos para convertirlos en
+              materiales visuales fáciles de entender y aplicar.
             </p>
           </div>
 
@@ -87,11 +89,11 @@ export default function About() {
               <IconBolt />
             </div>
             <h3 className="text-xl font-headline font-extrabold mb-3 text-on-surface group-hover:text-secondary transition-colors">
-              Eficiencia Real
+              Experiencia aplicada
             </h3>
             <p className="text-on-surface-variant leading-relaxed text-sm">
-              Reducimos tus costos operativos integrando tecnología avanzada,
-              optimización de procesos y automatización de vanguardia.
+              Diseñamos junto a las necesidades reales de tus equipos, espacios
+              y procesos operativos.
             </p>
           </div>
 
@@ -101,11 +103,11 @@ export default function About() {
               <IconSparkle />
             </div>
             <h3 className="text-xl font-headline font-extrabold mb-3 text-on-surface group-hover:text-tertiary transition-colors">
-              Experiencia que Convierte
+              Soluciones conectadas
             </h3>
             <p className="text-on-surface-variant leading-relaxed text-sm">
-              Diseñamos interfaces intuitivas que mejoran la adopción de tus
-              productos y la satisfacción de tus usuarios.
+              Integramos capacitación, señalética, documentación técnica y
+              herramientas digitales en una experiencia coherente.
             </p>
           </div>
         </div>

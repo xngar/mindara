@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useCallback } from 'react';
-import { createPortal } from 'react-dom';
-import Image from 'next/image';
+import { useState, useEffect, useCallback } from "react";
+import { createPortal } from "react-dom";
+import Image from "next/image";
 
 interface GalleryImage {
   src: string;
@@ -10,13 +10,31 @@ interface GalleryImage {
 }
 
 const images: GalleryImage[] = [
-  { src: '/001.webp', alt: 'Proyecto 1' },
-  { src: '/002.webp', alt: 'Proyecto 2' },
-  { src: '/003.webp', alt: 'Proyecto 3' },
-  { src: '/004.webp', alt: 'Proyecto 4' },
-  { src: '/005.webp', alt: 'Proyecto 5' },
-  { src: '/006.webp', alt: 'Proyecto 6' },
-  { src: '/007.webp', alt: 'Proyecto 7' },
+  {
+    src: "/001.webp",
+    alt: "Modelo 3D de camión minero con componentes descompuestos",
+  },
+  {
+    src: "/002.webp",
+    alt: "Infografía técnica del proceso de molienda y flotación minera",
+  },
+  {
+    src: "/003.webp",
+    alt: "Infografía 3D de un sistema minero integrado de cobre",
+  },
+  { src: "/004.webp", alt: "Diagrama 3D de una planta minera a cielo abierto" },
+  {
+    src: "/005.webp",
+    alt: "Infografía técnica de un horno alto y su flujo de proceso",
+  },
+  {
+    src: "/006.webp",
+    alt: "Vista 3D descompuesta de un equipo triturador industrial",
+  },
+  {
+    src: "/007.webp",
+    alt: "Infografía técnica de despiece de una caldera pirotubular",
+  },
 ];
 
 /**
@@ -31,13 +49,13 @@ const images: GalleryImage[] = [
  *  └────┴────────┴──────┘
  */
 const bentoStyles: React.CSSProperties[] = [
-  { gridColumn: '1 / 3', gridRow: '1 / 3' },      // 001 — 2×2
-  { gridColumn: '3 / 4', gridRow: '1 / 2' },      // 002 — 1×1
-  { gridColumn: '4 / 5', gridRow: '1 / 2' },      // 003 — 1×1
-  { gridColumn: '3 / 5', gridRow: '2 / 3' },      // 004 — 2×1
-  { gridColumn: '1 / 2', gridRow: '3 / 4' },      // 005 — 1×1
-  { gridColumn: '2 / 4', gridRow: '3 / 4' },      // 006 — 2×1
-  { gridColumn: '4 / 5', gridRow: '3 / 4' },      // 007 — 1×1
+  { gridColumn: "1 / 3", gridRow: "1 / 3" }, // 001 — 2×2
+  { gridColumn: "3 / 4", gridRow: "1 / 2" }, // 002 — 1×1
+  { gridColumn: "4 / 5", gridRow: "1 / 2" }, // 003 — 1×1
+  { gridColumn: "3 / 5", gridRow: "2 / 3" }, // 004 — 2×1
+  { gridColumn: "1 / 2", gridRow: "3 / 4" }, // 005 — 1×1
+  { gridColumn: "2 / 4", gridRow: "3 / 4" }, // 006 — 2×1
+  { gridColumn: "4 / 5", gridRow: "3 / 4" }, // 007 — 1×1
 ];
 
 /* ── Lightbox como componente separado renderizado via Portal ── */
@@ -60,7 +78,7 @@ function Lightbox({
     <div
       id="gallery-lightbox"
       className={`fixed inset-0 flex items-center justify-center p-4 transition-all duration-250 ${
-        isClosing ? 'opacity-0' : 'opacity-100'
+        isClosing ? "opacity-0" : "opacity-100"
       }`}
       style={{ zIndex: 9999 }}
       onClick={onClose}
@@ -74,13 +92,13 @@ function Lightbox({
       {/* Contenedor de la imagen */}
       <div
         className={`relative z-10 max-w-5xl w-full transition-all duration-300 ${
-          isClosing ? 'scale-95 opacity-0' : 'scale-100 opacity-100'
+          isClosing ? "scale-95 opacity-0" : "scale-100 opacity-100"
         }`}
         onClick={(e) => e.stopPropagation()}
       >
         <div
           className="relative w-full rounded-2xl overflow-hidden shadow-2xl"
-          style={{ aspectRatio: '16/9' }}
+          style={{ aspectRatio: "16/9" }}
         >
           <Image
             src={image.src}
@@ -119,7 +137,10 @@ function Lightbox({
       {/* Botón anterior */}
       <button
         id="gallery-prev-btn"
-        onClick={(e) => { e.stopPropagation(); onNavigate(-1); }}
+        onClick={(e) => {
+          e.stopPropagation();
+          onNavigate(-1);
+        }}
         className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-colors duration-200 cursor-pointer"
         aria-label="Imagen anterior"
       >
@@ -129,11 +150,16 @@ function Lightbox({
       {/* Botón siguiente */}
       <button
         id="gallery-next-btn"
-        onClick={(e) => { e.stopPropagation(); onNavigate(1); }}
+        onClick={(e) => {
+          e.stopPropagation();
+          onNavigate(1);
+        }}
         className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-colors duration-200 cursor-pointer"
         aria-label="Imagen siguiente"
       >
-        <span className="material-symbols-outlined text-3xl">chevron_right</span>
+        <span className="material-symbols-outlined text-3xl">
+          chevron_right
+        </span>
       </button>
 
       {/* Indicadores de puntos */}
@@ -142,18 +168,21 @@ function Lightbox({
           <button
             key={i}
             id={`gallery-dot-${i + 1}`}
-            onClick={(e) => { e.stopPropagation(); onGoTo(i); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              onGoTo(i);
+            }}
             className={`w-2 h-2 rounded-full transition-all duration-200 cursor-pointer ${
               i === index
-                ? 'bg-white scale-125'
-                : 'bg-white/40 hover:bg-white/70'
+                ? "bg-white scale-125"
+                : "bg-white/40 hover:bg-white/70"
             }`}
             aria-label={`Ir a imagen ${i + 1}`}
           />
         ))}
       </div>
     </div>,
-    document.body
+    document.body,
   );
 }
 
@@ -183,7 +212,7 @@ export default function BentoGallery() {
       setSelectedIndex(next);
       setSelected(images[next]);
     },
-    [selectedIndex]
+    [selectedIndex],
   );
 
   const goTo = useCallback((i: number) => {
@@ -194,31 +223,33 @@ export default function BentoGallery() {
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (!selected) return;
-      if (e.key === 'Escape') closeModal();
-      if (e.key === 'ArrowRight') navigate(1);
-      if (e.key === 'ArrowLeft') navigate(-1);
+      if (e.key === "Escape") closeModal();
+      if (e.key === "ArrowRight") navigate(1);
+      if (e.key === "ArrowLeft") navigate(-1);
     };
-    window.addEventListener('keydown', handler);
-    return () => window.removeEventListener('keydown', handler);
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
   }, [selected, closeModal, navigate]);
 
   // Bloquear scroll cuando el modal está abierto
   useEffect(() => {
-    document.body.style.overflow = selected ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    document.body.style.overflow = selected ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [selected]);
 
   return (
     <section id="galeria" className="py-32 bg-surface-container-low">
       <div className="max-w-7xl mx-auto px-8">
-
         {/* Encabezado */}
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-5xl md:text-6xl font-headline font-extrabold text-on-surface">
             Nuestro Trabajo
           </h2>
           <p className="text-on-surface-variant max-w-2xl mx-auto text-lg">
-            Una selección de proyectos que reflejan nuestra pasión por el diseño y la innovación digital.
+            Una selección de proyectos que reflejan nuestra pasión por el diseño
+            y la innovación digital.
           </p>
         </div>
 
@@ -226,8 +257,8 @@ export default function BentoGallery() {
         <div
           className="grid gap-4"
           style={{
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gridTemplateRows: 'repeat(3, 220px)',
+            gridTemplateColumns: "repeat(4, 1fr)",
+            gridTemplateRows: "repeat(3, 220px)",
           }}
         >
           {images.map((img, idx) => (
@@ -245,13 +276,13 @@ export default function BentoGallery() {
                 fill
                 sizes={
                   idx === 0
-                    ? '(max-width: 768px) 100vw, 50vw'   // 2×2 — ocupa la mitad del grid
+                    ? "(max-width: 768px) 100vw, 50vw" // 2×2 — ocupa la mitad del grid
                     : idx === 3 || idx === 5
-                      ? '(max-width: 768px) 100vw, 50vw' // 2×1 — ocupa la mitad del grid
-                      : '(max-width: 768px) 100vw, 25vw' // 1×1 — ocupa un cuarto del grid
+                      ? "(max-width: 768px) 100vw, 50vw" // 2×1 — ocupa la mitad del grid
+                      : "(max-width: 768px) 100vw, 25vw" // 1×1 — ocupa un cuarto del grid
                 }
                 className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                loading={idx === 0 ? 'eager' : 'lazy'}
+                loading={idx === 0 ? "eager" : "lazy"}
               />
 
               {/* Overlay degradado */}

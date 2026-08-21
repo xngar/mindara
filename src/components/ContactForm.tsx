@@ -36,10 +36,11 @@ export default function ContactForm() {
             <>
               <div className="text-center mb-12">
                 <h2 className="text-4xl font-headline font-extrabold text-on-surface mb-4">
-                  Hablemos de tu Proyecto
+                  Cuéntanos qué necesitas comunicar, enseñar o mejorar
                 </h2>
                 <p className="text-on-surface-variant">
-                  Estamos listos para darle forma a tus ideas.
+                  Cuéntanos sobre tu operación, equipo o proyecto y prepararemos
+                  una orientación inicial.
                 </p>
               </div>
 
@@ -86,6 +87,37 @@ export default function ContactForm() {
                       type="email"
                     />
                   </div>
+                </div>
+                <div className="space-y-2 flex flex-col">
+                  <label
+                    htmlFor="service"
+                    className="text-sm font-bold text-on-surface px-1"
+                  >
+                    ¿Qué necesitas desarrollar?
+                  </label>
+                  <select
+                    id="service"
+                    name="service"
+                    className="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary py-4 px-6 text-on-surface transition-all"
+                    defaultValue=""
+                  >
+                    <option value="" disabled>
+                      Selecciona una opción
+                    </option>
+                    <option value="Capacitación y contenido interactivo">
+                      Capacitación y contenido interactivo
+                    </option>
+                    <option value="Señalética y material de seguridad">
+                      Señalética y material de seguridad
+                    </option>
+                    <option value="Diseño técnico 3D y CAD">
+                      Diseño técnico 3D y CAD
+                    </option>
+                    <option value="Presencia digital para empresas">
+                      Presencia digital para empresas
+                    </option>
+                    <option value="Otro proyecto">Otro proyecto</option>
+                  </select>
                 </div>
                 <div className="space-y-2 flex flex-col">
                   <label

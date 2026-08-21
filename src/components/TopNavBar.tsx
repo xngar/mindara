@@ -4,9 +4,9 @@ import { useState } from "react";
 
 const links = [
   { href: "#inicio", label: "Inicio", active: true },
-  { href: "#nosotros", label: "Nosotros" },
-  { href: "#servicios", label: "Servicios" },
-  { href: "#galeria", label: "Proyectos" },
+  { href: "#nosotros", label: "Experiencia" },
+  { href: "#servicios", label: "Soluciones" },
+  { href: "#galeria", label: "Casos" },
   { href: "#equipo", label: "Equipo" },
   { href: "#contacto", label: "Contacto" },
 ];
@@ -49,7 +49,7 @@ export default function TopNavBar() {
           onClick={() => setIsOpen(false)}
           className="hidden md:block cursor-pointer bg-primary text-on-primary px-8 py-3 rounded-full font-bold transition-transform scale-95 active:scale-90 hover:shadow-lg"
         >
-          Cotizar
+          Hablemos
         </a>
 
         <button
@@ -80,7 +80,7 @@ export default function TopNavBar() {
             onClick={() => setIsOpen(false)}
             className="cursor-pointer bg-primary text-center text-on-primary px-8 py-3 rounded-full font-bold transition-transform active:scale-95 mt-2 shadow-md"
           >
-            Cotizar
+            Hablemos
           </a>
         </div>
       )}

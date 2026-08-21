@@ -11,6 +11,7 @@ export type ActionState = {
 export async function sendContactEmail(prevState: ActionState | null, formData: FormData): Promise<ActionState> {
   const name = formData.get('name') as string;
   const email = formData.get('email') as string;
+  const service = formData.get('service') as string;
   const subject = formData.get('subject') as string;
   const message = formData.get('message') as string;
 
@@ -61,6 +62,7 @@ export async function sendContactEmail(prevState: ActionState | null, formData: 
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e9ed; border-radius: 12px; background-color: #f7fafc; color: #2c3437;">
           <h2 style="color: #6b46c1; border-bottom: 2px solid #6b46c1; padding-bottom: 10px; margin-top: 0;">Nuevo mensaje de contacto</h2>
           <p style="margin: 15px 0;"><strong>De:</strong> ${name} (<a href="mailto:${email}" style="color: #6b46c1; text-decoration: none;">${email}</a>)</p>
+          <p style="margin: 15px 0;"><strong>Servicio de interés:</strong> ${service || 'No especificado'}</p>
           <p style="margin: 15px 0;"><strong>Asunto:</strong> ${subject}</p>
           <div style="background-color: #ffffff; padding: 15px; border-radius: 8px; border: 1px solid #dce4e8; margin-top: 20px;">
             <p style="margin: 0; white-space: pre-wrap; line-height: 1.6;">${message}</p>

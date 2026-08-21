@@ -24,16 +24,24 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.mindara.cl"),
   title: {
-    default: "Mindara Chile | Desarrollo Web, Software y Diseño Gráfico",
+    default: "Mindara Chile | Capacitación, Señalética y Soluciones Digitales",
     template: "%s | Mindara",
   },
   description:
-    "Creamos software a medida, gestionamos tus redes sociales, potenciamos tu marca con publicidad digital y diseño gráfico profesional. Impulsa tu negocio con Mindara.",
+    "Diseñamos capacitación, señalética, material de seguridad, documentación CAD/3D y soluciones digitales para empresas en Chile.",
   alternates: {
     canonical: "/",
   },
   keywords: [
     "desarrollo de software",
+    "capacitación HSE",
+    "material de capacitación empresarial",
+    "señalética de seguridad",
+    "señalética industrial",
+    "digitalización de planos",
+    "diseño CAD",
+    "diseño 3D para empresas",
+    "material de prevención de riesgos",
     "diseño gráfico",
     "redes sociales",
     "manejo de instagram",
@@ -43,9 +51,9 @@ export const metadata: Metadata = {
     "agencia digital Chile",
   ],
   openGraph: {
-    title: "Mindara Chile | Desarrollo Web, Software y Diseño Gráfico",
+    title: "Mindara Chile | Capacitación, Señalética y Soluciones Digitales",
     description:
-      "Software a medida, gestión de redes sociales, publicidad digital y diseño gráfico profesional para potenciar tu negocio.",
+      "Capacitación visual, señalética de seguridad, documentación CAD/3D y soluciones digitales para empresas en Chile.",
     url: "https://www.mindara.cl",
     siteName: "Mindara",
     locale: "es_CL",
@@ -55,15 +63,15 @@ export const metadata: Metadata = {
         url: "/og-mindara.jpg",
         width: 1200,
         height: 630,
-        alt: "Mindara - Software, Redes Sociales y Diseño Gráfico",
+        alt: "Mindara - Capacitación, señalética y soluciones digitales para empresas",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mindara Chile | Desarrollo Web, Software y Diseño Gráfico",
+    title: "Mindara Chile | Capacitación, Señalética y Soluciones Digitales",
     description:
-      "Software a medida, gestión de redes sociales y diseño gráfico profesional para tu negocio.",
+      "Capacitación visual, señalética de seguridad, documentación CAD/3D y soluciones digitales para empresas en Chile.",
     images: ["/og-mindara.jpg"],
   },
 };
@@ -80,7 +88,7 @@ export default function RootLayout({
       url: "https://www.mindara.cl",
       logo: "https://www.mindara.cl/og-mindara.jpg",
       description:
-        "Agencia digital chilena especializada en desarrollo de software a medida, diseño gráfico, gestión de redes sociales y publicidad digital.",
+        "Mindara ayuda a empresas en Chile a comunicar, capacitar y operar mejor mediante capacitación visual, señalética, material de seguridad, documentación CAD/3D y soluciones digitales.",
       sameAs: ["https://www.instagram.com/mindara.cl"],
     },
     {
@@ -88,7 +96,7 @@ export default function RootLayout({
       "@type": "WebSite",
       name: "Mindara",
       url: "https://www.mindara.cl",
-    }
+    },
   ];
 
   return (
