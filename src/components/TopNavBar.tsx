@@ -21,7 +21,7 @@ export default function TopNavBar() {
 
   return (
     <nav
-      className={`mt-4 mx-auto w-[95%] max-w-7xl sticky top-4 z-50 bg-surface/80 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] text-on-surface transition-all duration-300 ${isOpen ? "rounded-2xl" : "rounded-full"}`}
+      className={`mt-4 mx-auto w-[calc(100%-32px)] md:w-[calc(100%-120px)] sticky top-4 z-50 bg-surface/80 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] text-on-surface transition-all duration-300 ${isOpen ? "rounded-2xl" : "rounded-full"}`}
     >
       <div className="flex justify-between items-center px-6 md:px-8 py-3">
         <div className="text-2xl md:text-4xl font-black text-purple-700 font-headline tracking-tight text-center">

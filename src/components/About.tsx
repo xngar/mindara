@@ -52,7 +52,7 @@ const IconSparkle = () => (
 export default function About() {
   return (
     <section id="nosotros" className="bg-surface-container-low py-32">
-      <div className="max-w-6xl mx-auto px-8 flex flex-col items-center text-center space-y-16">
+      <div className="w-full mx-auto px-6 md:px-[60px] flex flex-col items-center text-center space-y-16">
         {/* Encabezado y Subencabezado */}
         <div className="space-y-4 max-w-4xl">
           <h2 className="text-4xl md:text-5xl font-headline font-extrabold text-on-surface leading-tight">

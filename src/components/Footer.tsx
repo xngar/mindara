@@ -23,7 +23,7 @@ export default function Footer() {
   return (
     <>
       <footer className="bg-slate-50 py-12 border-t border-slate-100">
-        <div className="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto space-y-6 md:space-y-0">
+        <div className="flex flex-col md:flex-row justify-between items-center px-6 md:px-[60px] w-full mx-auto space-y-6 md:space-y-0">
           <div className="flex flex-col items-center md:items-start gap-4">
             <div className="text-xl font-bold text-slate-800">Mindara</div>
             <div className="flex flex-wrap gap-4 text-sm">

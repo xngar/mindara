@@ -175,7 +175,7 @@ const services = [
 export default function Services() {
   return (
     <section id="servicios" className="py-32 bg-surface">
-      <div className="max-w-7xl mx-auto px-8">
+      <div className="w-full mx-auto px-6 md:px-[60px]">
         <div className="text-center mb-20 space-y-4">
           <h2 className="text-6xl md:text-6xl font-headline font-extrabold text-on-surface">
             Soluciones para comunicar, capacitar y operar mejor

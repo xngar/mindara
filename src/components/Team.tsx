@@ -1,27 +1,28 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 export default function Team() {
   const members = [
     {
-      name: 'Mauricio Zúñiga',
-      role: 'Director de Tecnología & E-Learning',
-      experience: 'Lidera la estrategia tecnológica y de aprendizaje digital, con más de 15 años de experiencia en desarrollo frontend, diseño y e-learning.',
-      image: '/mauricio.webp',
-      icon: ''
+      name: "Mauricio Zúñiga",
+      role: "Director de Tecnología & E-Learning",
+      experience:
+        "Lidera la estrategia tecnológica y de aprendizaje digital, con más de 15 años de experiencia en desarrollo frontend, diseño y e-learning.",
+      image: "/mauricio.webp",
+      icon: "",
     },
     {
-      name: 'Gonzalo Peralta',
-      role: 'Líder de Diseño',
-      experience: 'Diseña experiencias visuales e interactivas centradas en el usuario, integrando creatividad y producción multimedia en cada proyecto.',
-      image: '/gonzalo.webp',
-      icon: ''
-    }
+      name: "Gonzalo Peralta",
+      role: "Líder de Diseño",
+      experience:
+        "Diseña experiencias visuales e interactivas centradas en el usuario, integrando creatividad y producción multimedia en cada proyecto.",
+      image: "/gonzalo.webp",
+      icon: "",
+    },
   ];
 
   return (
     <section id="equipo" className="bg-surface py-32 border-t border-outline/5">
-      <div className="max-w-7xl mx-auto px-8">
-
+      <div className="w-full mx-auto px-6 md:px-[60px]">
         {/* Encabezado: Título a la izquierda, Párrafo descriptivo a la derecha */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-24">
           <div className="lg:col-span-4 space-y-4">
@@ -32,7 +33,10 @@ export default function Team() {
           </div>
           <div className="lg:col-span-8">
             <p className="text-on-surface-variant text-lg leading-relaxed max-w-3xl">
-              Creemos en el poder de la colaboración multidisciplinaria. Fusionamos la creatividad visual con el desarrollo de ingeniería para entregar soluciones impecables, transformadoras y de alto rendimiento.
+              Creemos en el poder de la colaboración multidisciplinaria.
+              Fusionamos la creatividad visual con el desarrollo de ingeniería
+              para entregar soluciones impecables, transformadoras y de alto
+              rendimiento.
             </p>
           </div>
         </div>
@@ -41,7 +45,6 @@ export default function Team() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 text-center max-w-5xl mx-auto">
           {members.map((member, index) => (
             <div key={index} className="flex flex-col items-center group">
-
               {/* Icono superior en azul
               <div className="w-10 h-10 mb-6 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
                 <span className="material-symbols-outlined text-xl">{member.icon}</span>
@@ -70,11 +73,9 @@ export default function Team() {
               <p className="text-outline text-xs leading-relaxed max-w-xs">
                 {member.experience}
               </p>
-
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

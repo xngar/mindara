@@ -12,7 +12,7 @@ export default function ContactForm() {
 
   return (
     <section id="contacto" className="py-32 bg-surface-container-low">
-      <div className="max-w-4xl mx-auto px-8">
+      <div className="w-full mx-auto px-6 md:px-[60px]">
         <div className="bg-surface-container-lowest rounded-xl p-12 clay-shadow transition-all duration-500">
           {state?.success ? (
             <div className="text-center py-12 flex flex-col items-center justify-center space-y-6">
