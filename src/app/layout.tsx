@@ -88,7 +88,11 @@ export default function RootLayout({
       url: "https://www.mindara.cl",
       logo: "https://www.mindara.cl/og-mindara.jpg",
       description:
+<<<<<<< HEAD
         "Mindara ayuda a empresas en Chile a comunicar, capacitar y operar mejor mediante capacitación visual, señalética, material de seguridad, documentación CAD/3D y soluciones digitales.",
+=======
+        "Agencia digital chilena especializada en desarrollo de software a medida, diseño gráfico, gestión de redes sociales y publicidad digital.",
+>>>>>>> 70cc74d7eec4a73b46906c5d28a7bcc250654d4e
       sameAs: ["https://www.instagram.com/mindara.cl"],
     },
     {
@@ -96,7 +100,11 @@ export default function RootLayout({
       "@type": "WebSite",
       name: "Mindara",
       url: "https://www.mindara.cl",
+<<<<<<< HEAD
     },
+=======
+    }
+>>>>>>> 70cc74d7eec4a73b46906c5d28a7bcc250654d4e
   ];
 
   return (
