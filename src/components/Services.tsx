@@ -114,7 +114,7 @@ const services = [
     id: 1,
     title: "Capacitación y Contenido Interactivo",
     description:
-      "Diseñamos cursos por módulos, videos explicativos, infografías HSE y procedimientos técnicos para convertir información compleja en aprendizaje claro, visual y accionable.",
+      "Cursos y materiales visuales para que tu equipo aprenda más rápido y mejor.",
     bgColor: "bg-secondary-container",
     iconColor: "text-primary",
     hoverColor: "group-hover:text-primary",
@@ -134,7 +134,7 @@ const services = [
     id: 3,
     title: "Señalética y Material de Seguridad",
     description:
-      "Desarrollamos sistemas de señalética, piezas de orientación y material preventivo adaptados a los riesgos, recorridos y necesidades de cada espacio.",
+      "Soluciones visuales para orientar, prevenir riesgos y reforzar la seguridad.",
     bgColor: "bg-purple-100",
     iconColor: "text-purple-600",
     hoverColor: "group-hover:text-purple-600",
@@ -144,7 +144,7 @@ const services = [
     id: 4,
     title: "Presencia Digital para Empresas",
     description:
-      "Creamos sitios web, interfaces y herramientas internas que conectan a tus equipos, clientes y procesos con una experiencia moderna y fácil de usar.",
+      "Sitios y experiencias digitales que conectan mejor tu marca con tu equipo y clientes.",
     bgColor: "bg-blue-100",
     iconColor: "text-blue-600",
     hoverColor: "group-hover:text-blue-600",
@@ -154,7 +154,7 @@ const services = [
     id: 5,
     title: "E-Learning y Entornos Virtuales",
     description:
-      "Desarrollamos plataformas educativas a medida para llevar tus contenidos de capacitación a entornos digitales intuitivos y efectivos.",
+      "Plataformas y contenidos digitales para capacitar sin fricción ni pérdida de tiempo.",
     bgColor: "bg-green-100",
     iconColor: "text-green-600",
     hoverColor: "group-hover:text-green-600",
@@ -164,7 +164,7 @@ const services = [
     id: 6,
     title: "Desarrollo de eCommerce",
     description:
-      "Tiendas online optimizadas para vender más y ofrecer un proceso de compra impecable.",
+      "Tiendas online pensadas para vender mejor y facilitar la compra.",
     bgColor: "bg-pink-100",
     iconColor: "text-pink-600",
     hoverColor: "group-hover:text-pink-600",
@@ -178,11 +178,11 @@ export default function Services() {
       <div className="w-full mx-auto px-6 md:px-[60px]">
         <div className="text-center mb-20 space-y-4">
           <h2 className="text-6xl md:text-6xl font-headline font-extrabold text-on-surface">
-            Soluciones para comunicar, capacitar y operar mejor
+            Soluciones para empresas
           </h2>
           <p className="text-on-surface-variant max-w-2xl mx-auto text-lg">
-            Combinamos comunicación visual, experiencia técnica y tecnología
-            para resolver necesidades reales de empresas en Chile.
+            Diseño técnico, capacitación, señalética y soluciones digitales para
+            comunicar mejor y operar con seguridad.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

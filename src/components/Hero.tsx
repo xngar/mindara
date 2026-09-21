@@ -42,25 +42,23 @@ export default function Hero() {
     >
       <div className="space-y-8">
         <h1 className="text-5xl md:text-7xl font-headline font-extrabold text-on-surface leading-[1.1] tracking-tight">
-          Capacitación, señalética y{" "}
           <TextType
-            text="soluciones digitales"
+            text="Capacitación y soluciones digitales"
             as="span"
-            className="text-primary font-extrabold"
+            className="text-on-surface"
           />{" "}
-          para empresas en Chile
+          para empresas
         </h1>
         <p className="text-xl text-on-surface-variant max-w-xl leading-relaxed">
-          Transformamos información técnica y operativa en cursos, videos,
-          material visual, documentación CAD y herramientas digitales que las
-          personas pueden comprender y utilizar.
+          Diseñamos cursos, señalética y materiales técnicos para comunicar
+          mejor, entrenar mejor y operar con mayor seguridad.
         </p>
         <div className="flex flex-wrap gap-4">
           <a
             href="#contacto"
             className="inline-flex items-center gap-2 bg-primary text-on-primary px-10 py-5 rounded-xl font-bold text-lg hover:shadow-[0_20px_50px_rgba(107,70,193,0.3)] transition-all"
           >
-            Cuéntanos tu necesidad
+            Consulta tu proyecto
             <span className="material-symbols-outlined">arrow_forward</span>
           </a>
           <a

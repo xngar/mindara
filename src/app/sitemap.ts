@@ -1,13 +1,19 @@
 import { MetadataRoute } from 'next';
 
+const baseUrl = 'https://www.mindara.cl';
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: 'https://www.mindara.cl',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
-    // Add other pages here as the site grows
+  const routes = [
+    '/',
+    '/politica-de-privacidad',
+    '/politica-de-cookies',
+    '/terminos-y-condiciones',
   ];
+
+  return routes.map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date(),
+    changeFrequency: route === '/' ? 'weekly' : 'monthly',
+    priority: route === '/' ? 1 : 0.6,
+  }));
 }

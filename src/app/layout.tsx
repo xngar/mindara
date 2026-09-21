@@ -83,6 +83,28 @@ export default function RootLayout({
   const jsonLd = [
     {
       "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      name: "Mindara",
+      url: "https://www.mindara.cl",
+      logo: "https://www.mindara.cl/og-mindara.jpg",
+      image: "https://www.mindara.cl/og-mindara.jpg",
+      description:
+        "Mindara ayuda a empresas en Chile a comunicar, capacitar y operar mejor mediante capacitación visual, señalética, material de seguridad, documentación CAD/3D y soluciones digitales.",
+      areaServed: "CL",
+      address: {
+        "@type": "PostalAddress",
+        addressCountry: "CL",
+      },
+      sameAs: ["https://www.instagram.com/mindara.cl"],
+      makesOffer: [
+        "Capacitación para empresas",
+        "Señalética industrial",
+        "Diseño CAD/3D",
+        "Soluciones digitales",
+      ],
+    },
+    {
+      "@context": "https://schema.org",
       "@type": "Organization",
       name: "Mindara",
       url: "https://www.mindara.cl",
@@ -96,6 +118,11 @@ export default function RootLayout({
       "@type": "WebSite",
       name: "Mindara",
       url: "https://www.mindara.cl",
+      potentialAction: {
+        "@type": "SearchAction",
+        target: "https://www.mindara.cl/?q={search_term_string}",
+        "query-input": "required name=search_term_string",
+      },
     },
   ];
 
