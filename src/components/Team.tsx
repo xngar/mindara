@@ -23,26 +23,24 @@ export default function Team() {
   return (
     <section id="equipo" className="bg-surface py-32 border-t border-outline/5">
       <div className="w-full mx-auto px-6 md:px-[60px]">
-        {/* Encabezado: Título a la izquierda, Párrafo descriptivo a la derecha */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-24">
-          <div className="lg:col-span-4 space-y-4">
-            <h2 className="text-5xl md:text-6xl font-headline font-black tracking-tight text-on-surface ">
+        {/* Encabezado: Título, párrafo y acento centrados */}
+        <div className="max-w-3xl mx-auto mb-24 text-center space-y-6">
+          <div className="space-y-4">
+            <h2 className="text-5xl md:text-6xl font-headline font-black tracking-tight text-on-surface">
               Nuestro Equipo
             </h2>
-            <div className="w-16 h-1 bg-primary rounded-full"></div>
+            <div className="w-16 h-1 bg-primary rounded-full mx-auto"></div>
           </div>
-          <div className="lg:col-span-8">
-            <p className="text-on-surface-variant text-lg leading-relaxed max-w-3xl">
-              Creemos en el poder de la colaboración multidisciplinaria.
-              Fusionamos la creatividad visual con el desarrollo de ingeniería
-              para entregar soluciones impecables, transformadoras y de alto
-              rendimiento.
-            </p>
-          </div>
+          <p className="text-on-surface-variant text-lg leading-relaxed">
+            Creemos en el poder de la colaboración multidisciplinaria.
+            Fusionamos la creatividad visual con el desarrollo de ingeniería
+            para entregar soluciones impecables, transformadoras y de alto
+            rendimiento.
+          </p>
         </div>
 
-        {/* Rejilla del Equipo: 3 Columnas Centradas */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 text-center max-w-5xl mx-auto">
+        {/* Rejilla del Equipo: 2 Columnas Centradas */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 text-center max-w-3xl mx-auto">
           {members.map((member, index) => (
             <div key={index} className="flex flex-col items-center group">
               {/* Icono superior en azul
