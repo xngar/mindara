@@ -115,7 +115,7 @@ const services = [
     title: "Capacitación y Contenido Interactivo",
     description:
       "Cursos y materiales visuales para que tu equipo aprenda más rápido y mejor.",
-    bgColor: "bg-secondary-container",
+    bgColor: "bg-primary-container",
     iconColor: "text-primary",
     hoverColor: "group-hover:text-primary",
     Icon: IconShare,
@@ -125,9 +125,9 @@ const services = [
     title: "Diseño Técnico 3D y CAD",
     description:
       "Digitalizamos, vectorizamos y actualizamos planos, planimetría, diagramas y documentación técnica para que tu equipo trabaje con información ordenada y vigente.",
-    bgColor: "bg-orange-100",
-    iconColor: "text-orange-500",
-    hoverColor: "group-hover:text-orange-500",
+    bgColor: "bg-secondary-container",
+    iconColor: "text-secondary-dim",
+    hoverColor: "group-hover:text-secondary-dim",
     Icon: IconVideo,
   },
   {
@@ -135,9 +135,9 @@ const services = [
     title: "Señalética y Material de Seguridad",
     description:
       "Soluciones visuales para orientar, prevenir riesgos y reforzar la seguridad.",
-    bgColor: "bg-purple-100",
-    iconColor: "text-purple-600",
-    hoverColor: "group-hover:text-purple-600",
+    bgColor: "bg-tertiary-container",
+    iconColor: "text-tertiary-dim",
+    hoverColor: "group-hover:text-tertiary-dim",
     Icon: IconSignpost,
   },
   {
@@ -145,9 +145,9 @@ const services = [
     title: "Presencia Digital para Empresas",
     description:
       "Sitios y experiencias digitales que conectan mejor tu marca con tu equipo y clientes.",
-    bgColor: "bg-blue-100",
-    iconColor: "text-blue-600",
-    hoverColor: "group-hover:text-blue-600",
+    bgColor: "bg-primary-container",
+    iconColor: "text-primary",
+    hoverColor: "group-hover:text-primary",
     Icon: IconMonitor,
   },
   {
@@ -155,9 +155,9 @@ const services = [
     title: "E-Learning y Entornos Virtuales",
     description:
       "Plataformas y contenidos digitales para capacitar sin fricción ni pérdida de tiempo.",
-    bgColor: "bg-green-100",
-    iconColor: "text-green-600",
-    hoverColor: "group-hover:text-green-600",
+    bgColor: "bg-secondary-container",
+    iconColor: "text-secondary-dim",
+    hoverColor: "group-hover:text-secondary-dim",
     Icon: IconGraduation,
   },
   {
@@ -165,9 +165,9 @@ const services = [
     title: "Desarrollo de eCommerce",
     description:
       "Tiendas online pensadas para vender mejor y facilitar la compra.",
-    bgColor: "bg-pink-100",
-    iconColor: "text-pink-600",
-    hoverColor: "group-hover:text-pink-600",
+    bgColor: "bg-tertiary-container",
+    iconColor: "text-tertiary-dim",
+    hoverColor: "group-hover:text-tertiary-dim",
     Icon: IconShoppingBag,
   },
 ];

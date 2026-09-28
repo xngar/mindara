@@ -1,56 +1,149 @@
 @import "tailwindcss";
 @source "../**/*.{ts,tsx}";
 
+/* ==========================================================================
+   1. COLORES GLOBALES DE MARCA
+   --------------------------------------------------------------------------
+   ÚNICO LUGAR PARA CAMBIAR LA PALETA DE TODO EL SITIO.
+   Edita solo estos 6 valores y guarda: botones, títulos, degradados, sombras,
+   bordes, superficies e iconos se actualizan al instante.
+   ========================================================================== */
+:root {
+  --brand-primary: #065a82; /* COLOR PRINCIPAL */
+  --brand-secondary: #f7b801; /* COLOR SECUNDARIO (acento) */
+  --brand-on-primary: #ffffff; /* Texto e iconos sobre el color principal */
+  /* El secundario actual es claro, así que el texto sobre él se oscurece solo.
+     Si eliges un secundario oscuro, cambia esta línea por #fff. */
+  --brand-on-secondary: color-mix(in oklab, var(--brand-secondary) 22%, #000);
+  --brand-error: #be123c; /* Errores de formularios y alertas */
+  --brand-on-error: #ffffff; /* Texto sobre el color de error */
+}
+
+/* ==========================================================================
+   2. TONOS DERIVADOS
+   --------------------------------------------------------------------------
+   Se calculan solos mezclando los colores de marca con blanco o negro.
+   No edites esta sección: con cambiar los 6 valores anteriores basta.
+   ========================================================================== */
+:root {
+  /* Primario */
+  --brand-primary-dim: color-mix(in oklab, var(--brand-primary) 78%, #000);
+  --brand-primary-bright: color-mix(in oklab, var(--brand-primary) 70%, #fff);
+  --brand-primary-container: color-mix(in oklab, var(--brand-primary) 12%, #fff);
+  --brand-primary-fixed: color-mix(in oklab, var(--brand-primary) 22%, #fff);
+  --brand-primary-fixed-dim: color-mix(in oklab, var(--brand-primary) 32%, #fff);
+  --brand-on-primary-container: color-mix(in oklab, var(--brand-primary) 50%, #000);
+  --brand-on-primary-fixed: color-mix(in oklab, var(--brand-primary) 60%, #000);
+  --brand-on-primary-fixed-variant: color-mix(in oklab, var(--brand-primary) 72%, #000);
+  --brand-inverse-primary: color-mix(in oklab, var(--brand-primary) 55%, #fff);
+
+  /* Secundario */
+  --brand-secondary-dim: color-mix(in oklab, var(--brand-secondary) 50%, #000);
+  --brand-secondary-bright: color-mix(in oklab, var(--brand-secondary) 40%, #fff);
+  --brand-secondary-container: color-mix(in oklab, var(--brand-secondary) 16%, #fff);
+  --brand-secondary-fixed: color-mix(in oklab, var(--brand-secondary) 30%, #fff);
+  --brand-secondary-fixed-dim: color-mix(in oklab, var(--brand-secondary) 45%, #fff);
+  --brand-on-secondary-container: color-mix(in oklab, var(--brand-secondary) 55%, #000);
+  --brand-on-secondary-fixed: color-mix(in oklab, var(--brand-secondary) 60%, #000);
+  --brand-on-secondary-fixed-variant: color-mix(in oklab, var(--brand-secondary) 70%, #000);
+
+  /* Terciario: tono medio del primario, para que los tres acentos se distingan */
+  --brand-tertiary: color-mix(in oklab, var(--brand-primary) 45%, #fff);
+  --brand-tertiary-dim: color-mix(in oklab, var(--brand-tertiary) 60%, #000);
+  --brand-tertiary-bright: color-mix(in oklab, var(--brand-tertiary) 35%, #fff);
+  --brand-tertiary-container: color-mix(in oklab, var(--brand-tertiary) 18%, #fff);
+  --brand-on-tertiary: color-mix(in oklab, var(--brand-tertiary) 70%, #000);
+  --brand-on-tertiary-container: color-mix(in oklab, var(--brand-tertiary) 75%, #000);
+  --brand-on-tertiary-fixed: color-mix(in oklab, var(--brand-tertiary) 78%, #000);
+  --brand-on-tertiary-fixed-variant: color-mix(in oklab, var(--brand-tertiary) 85%, #000);
+
+  /* Superficies y neutros (derivados del primario para mantener la armonía) */
+  --brand-surface: color-mix(in oklab, var(--brand-primary) 4%, #fff);
+  --brand-surface-container-lowest: #fff;
+  --brand-surface-container-low: color-mix(in oklab, var(--brand-primary) 6%, #fff);
+  --brand-surface-container: color-mix(in oklab, var(--brand-primary) 9%, #fff);
+  --brand-surface-container-high: color-mix(in oklab, var(--brand-primary) 12%, #fff);
+  --brand-surface-container-highest: color-mix(in oklab, var(--brand-primary) 16%, #fff);
+  --brand-surface-variant: color-mix(in oklab, var(--brand-primary) 15%, #fff);
+  --brand-surface-dim: color-mix(in oklab, var(--brand-primary) 20%, #fff);
+  --brand-on-surface: color-mix(in oklab, var(--brand-primary) 62%, #000);
+  --brand-on-surface-variant: color-mix(in oklab, var(--brand-primary) 80%, #000);
+  --brand-outline: color-mix(in oklab, var(--brand-primary) 88%, #000);
+  --brand-outline-variant: color-mix(in oklab, var(--brand-primary) 55%, #fff);
+  --brand-inverse-surface: color-mix(in oklab, var(--brand-primary) 84%, #000);
+  --brand-inverse-on-surface: color-mix(in oklab, var(--brand-primary) 22%, #fff);
+
+  /* Error */
+  --brand-error-dim: color-mix(in oklab, var(--brand-error) 78%, #000);
+  --brand-error-container: color-mix(in oklab, var(--brand-error) 16%, #fff);
+  --brand-on-error-container: color-mix(in oklab, var(--brand-error) 82%, #000);
+}
+
+/* ==========================================================================
+   3. TOKENS EXPUESTOS A TAILWIND (bg-primary, text-secondary-container, etc.)
+   ========================================================================== */
 @theme {
-  --color-outline: #747c80;
-  --color-surface: #f7fafc;
-  --color-secondary-container: #eddcff;
-  --color-on-tertiary: #fff7f4;
-  --color-on-secondary-fixed-variant: #675187;
-  --color-inverse-on-surface: #9a9d9f;
-  --color-primary-fixed: #cbb6ff;
-  --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f0f4f7;
-  --color-surface-container: #e9eff2;
-  --color-surface-container-high: #e2e9ed;
-  --color-surface-container-highest: #dce4e8;
-  --color-surface-variant: #dce4e8;
-  --color-inverse-surface: #0b0f10;
-  --color-on-tertiary-container: #582a00;
-  --color-on-primary-fixed: #31007b;
-  --color-inverse-primary: #a480fe;
-  --color-surface-dim: #d2dce0;
-  --color-outline-variant: #abb3b7;
-  --color-error: #ac3149;
-  --color-on-secondary-fixed: #4a3569;
-  --color-on-surface: #2c3437;
-  --color-on-surface-variant: #586064;
-  --color-on-primary: #fdf7ff;
-  --color-error-container: #f76a80;
-  --color-surface-tint: #6b46c1;
-  --color-on-secondary-container: #5d477d;
-  --color-secondary-fixed: #eddcff;
-  --color-secondary: #6b558b;
-  --color-on-primary-fixed-variant: #5128a6;
-  --color-on-tertiary-fixed-variant: #663100;
-  --color-background: #f7fafc;
-  --color-tertiary-dim: #834100;
-  --color-primary-dim: #5f39b4;
-  --color-surface-bright: #f7fafc;
-  --color-on-error: #fff7f7;
-  --color-on-error-container: #68001f;
-  --color-secondary-fixed-dim: #e2cbff;
-  --color-tertiary-container: #ffa35d;
-  --color-primary-fixed-dim: #bfa5ff;
-  --color-on-tertiary-fixed: #371800;
-  --color-on-background: #2c3437;
-  --color-on-secondary: #fef7ff;
-  --color-primary: #6b46c1;
-  --color-tertiary: #954b00;
-  --color-primary-container: #cbb6ff;
-  --color-secondary-dim: #5e497e;
-  --color-on-primary-container: #481b9d;
-  --color-error-dim: #770326;
+  /* Primario */
+  --color-primary: var(--brand-primary);
+  --color-primary-dim: var(--brand-primary-dim);
+  --color-primary-bright: var(--brand-primary-bright);
+  --color-primary-container: var(--brand-primary-container);
+  --color-primary-fixed: var(--brand-primary-fixed);
+  --color-primary-fixed-dim: var(--brand-primary-fixed-dim);
+  --color-on-primary: var(--brand-on-primary);
+  --color-on-primary-container: var(--brand-on-primary-container);
+  --color-on-primary-fixed: var(--brand-on-primary-fixed);
+  --color-on-primary-fixed-variant: var(--brand-on-primary-fixed-variant);
+  --color-inverse-primary: var(--brand-inverse-primary);
+
+  /* Secundario */
+  --color-secondary: var(--brand-secondary);
+  --color-secondary-dim: var(--brand-secondary-dim);
+  --color-secondary-bright: var(--brand-secondary-bright);
+  --color-secondary-container: var(--brand-secondary-container);
+  --color-secondary-fixed: var(--brand-secondary-fixed);
+  --color-secondary-fixed-dim: var(--brand-secondary-fixed-dim);
+  --color-on-secondary: var(--brand-on-secondary);
+  --color-on-secondary-container: var(--brand-on-secondary-container);
+  --color-on-secondary-fixed: var(--brand-on-secondary-fixed);
+  --color-on-secondary-fixed-variant: var(--brand-on-secondary-fixed-variant);
+
+  /* Terciario */
+  --color-tertiary: var(--brand-tertiary);
+  --color-tertiary-dim: var(--brand-tertiary-dim);
+  --color-tertiary-bright: var(--brand-tertiary-bright);
+  --color-tertiary-container: var(--brand-tertiary-container);
+  --color-on-tertiary: var(--brand-on-tertiary);
+  --color-on-tertiary-container: var(--brand-on-tertiary-container);
+  --color-on-tertiary-fixed: var(--brand-on-tertiary-fixed);
+  --color-on-tertiary-fixed-variant: var(--brand-on-tertiary-fixed-variant);
+
+  /* Superficies y neutros */
+  --color-surface: var(--brand-surface);
+  --color-background: var(--brand-surface);
+  --color-surface-bright: var(--brand-surface);
+  --color-surface-dim: var(--brand-surface-dim);
+  --color-surface-variant: var(--brand-surface-variant);
+  --color-surface-container-lowest: var(--brand-surface-container-lowest);
+  --color-surface-container-low: var(--brand-surface-container-low);
+  --color-surface-container: var(--brand-surface-container);
+  --color-surface-container-high: var(--brand-surface-container-high);
+  --color-surface-container-highest: var(--brand-surface-container-highest);
+  --color-on-surface: var(--brand-on-surface);
+  --color-on-surface-variant: var(--brand-on-surface-variant);
+  --color-on-background: var(--brand-on-surface);
+  --color-surface-tint: var(--brand-primary);
+  --color-inverse-surface: var(--brand-inverse-surface);
+  --color-inverse-on-surface: var(--brand-inverse-on-surface);
+  --color-outline: var(--brand-outline);
+  --color-outline-variant: var(--brand-outline-variant);
+
+  /* Error */
+  --color-error: var(--brand-error);
+  --color-error-dim: var(--brand-error-dim);
+  --color-error-container: var(--brand-error-container);
+  --color-on-error: var(--brand-on-error);
+  --color-on-error-container: var(--brand-on-error-container);
 
   --font-headline: var(--font-jakarta);
   --font-body: var(--font-inter);
@@ -63,8 +156,8 @@
   }
 
   body {
-    background-color: var(--color-surface);
-    color: var(--color-on-surface);
+    background-color: var(--brand-surface);
+    color: var(--brand-on-surface);
     font-family: var(--font-body);
     overflow-x: hidden;
   }
@@ -85,8 +178,27 @@
   }
 }
 
+/* ==========================================================================
+   4. UTILIDADES DE MARCA (sombras que siguen al color principal)
+   ========================================================================== */
+@utility shadow-brand {
+  box-shadow:
+    0 18px 40px -14px color-mix(in oklab, var(--brand-primary) 30%, transparent);
+}
+
+@utility shadow-brand-lg {
+  box-shadow:
+    0 24px 60px -18px color-mix(in oklab, var(--brand-primary) 42%, transparent);
+}
+
+@utility shadow-depth {
+  box-shadow: 0 24px 80px -28px rgb(0 0 0 / 0.22);
+}
+
 .clay-shadow {
-  box-shadow: 0 20px 40px -10px rgba(107, 70, 193, 0.12), inset 0 -4px 8px rgba(107, 70, 193, 0.05);
+  box-shadow:
+    0 20px 40px -12px color-mix(in oklab, var(--brand-primary) 18%, transparent),
+    inset 0 -4px 8px color-mix(in oklab, var(--brand-primary) 8%, transparent);
 }
 
 .glass-nav {
@@ -95,5 +207,9 @@
 }
 
 .material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
 }

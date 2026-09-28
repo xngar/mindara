@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <main className="min-h-[calc(100vh-6rem)] bg-surface py-20 px-6 text-slate-900 sm:px-10">
-      <div className="mx-auto w-full max-w-6xl rounded-4xl border border-slate-200 bg-white p-10 shadow-xl">
+    <main className="min-h-[calc(100vh-6rem)] bg-surface py-20 px-6 text-on-surface sm:px-10">
+      <div className="mx-auto w-full max-w-6xl rounded-4xl border border-outline/15 bg-surface-container-lowest p-10 shadow-xl">
         <p className="text-sm uppercase tracking-[0.3em] text-primary">
           Última actualización: 6 de agosto de 2026
         </p>
@@ -17,7 +17,7 @@ export default function TermsPage() {
           Términos y Condiciones de Servicio
         </h1>
 
-        <section className="mt-10 space-y-5 text-base leading-8 text-slate-700">
+        <section className="mt-10 space-y-5 text-base leading-8 text-on-surface-variant">
           <p>
             Bienvenido a www.mindara.cl. El acceso y uso de este sitio web están
             sujetos a los siguientes Términos y Condiciones de Servicio y a la
@@ -26,7 +26,7 @@ export default function TermsPage() {
           </p>
 
           <div>
-            <h2 className="text-2xl font-semibold text-slate-900">
+            <h2 className="text-2xl font-semibold text-on-surface">
               1. Propiedad Intelectual
             </h2>
             <p className="mt-4">
@@ -40,7 +40,7 @@ export default function TermsPage() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold text-slate-900">
+            <h2 className="text-2xl font-semibold text-on-surface">
               2. Uso Permitido del Sitio
             </h2>
             <p className="mt-4">
@@ -63,7 +63,7 @@ export default function TermsPage() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold text-slate-900">
+            <h2 className="text-2xl font-semibold text-on-surface">
               3. Limitación de Responsabilidad
             </h2>
             <p className="mt-4">
@@ -77,7 +77,7 @@ export default function TermsPage() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold text-slate-900">
+            <h2 className="text-2xl font-semibold text-on-surface">
               4. Enlaces a Terceros
             </h2>
             <p className="mt-4">
@@ -89,7 +89,7 @@ export default function TermsPage() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold text-slate-900">
+            <h2 className="text-2xl font-semibold text-on-surface">
               5. Legislación Aplicable y Jurisdicción
             </h2>
             <p className="mt-4">

@@ -240,14 +240,14 @@ export default function BentoGallery() {
   }, [selected]);
 
   return (
-    <section id="galeria" className="py-32 bg-surface-container-low">
+    <section id="galeria" className="py-32 bg-background">
       <div className="w-full mx-auto px-6 md:px-[60px]">
         {/* Encabezado */}
         <div className="text-center mb-16 space-y-4">
-          <h2 className="text-5xl md:text-6xl font-headline font-extrabold text-on-surface">
+          <h2 className="text-5xl md:text-6xl font-headline font-extrabold text-on-background">
             Nuestro Trabajo
           </h2>
-          <p className="text-on-surface-variant max-w-2xl mx-auto text-lg">
+          <p className="text-on-background/80 max-w-2xl mx-auto text-lg">
             Una selección de proyectos que reflejan nuestra pasión por el diseño
             y la innovación digital.
           </p>
@@ -266,7 +266,7 @@ export default function BentoGallery() {
               key={img.src}
               id={`gallery-item-${idx + 1}`}
               onClick={() => openModal(img, idx)}
-              className="relative overflow-hidden rounded-2xl group cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/60"
+              className="relative overflow-hidden rounded-2xl group cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-on-background/60"
               style={bentoStyles[idx]}
               aria-label={`Ver ${img.alt} en grande`}
             >
@@ -303,7 +303,7 @@ export default function BentoGallery() {
               </div>
 
               {/* Borde brillante */}
-              <div className="absolute inset-0 rounded-2xl ring-0 group-hover:ring-2 ring-primary/40 transition-all duration-300 pointer-events-none" />
+              <div className="absolute inset-0 rounded-2xl ring-0 group-hover:ring-2 ring-on-background/50 transition-all duration-300 pointer-events-none" />
             </button>
           ))}
         </div>

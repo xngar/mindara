@@ -175,17 +175,17 @@ export default function LegalModal({
   return (
     <div className="fixed inset-0 z-60 flex items-center justify-center px-4 py-6">
       <div
-        className="absolute inset-0 bg-slate-950/70 backdrop-blur-sm"
+        className="absolute inset-0 bg-inverse-surface/70 backdrop-blur-sm"
         onClick={onClose}
       />
 
-      <div className="relative z-10 mx-auto max-h-[90vh] w-full max-w-5xl overflow-y-auto rounded-4xl border border-slate-200 bg-white p-8 shadow-2xl">
+      <div className="relative z-10 mx-auto max-h-[90vh] w-full max-w-5xl overflow-y-auto rounded-4xl border border-outline/15 bg-surface-container-lowest p-8 shadow-2xl">
         <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
           <div>
             <p className="text-sm uppercase tracking-[0.3em] text-primary">
               Última actualización: 6 de agosto de 2026
             </p>
-            <h2 className="mt-4 text-3xl font-semibold text-slate-950">
+            <h2 className="mt-4 text-3xl font-semibold text-on-surface">
               {content.title}
             </h2>
           </div>
@@ -193,7 +193,7 @@ export default function LegalModal({
           <button
             type="button"
             onClick={onClose}
-            className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-200"
+            className="inline-flex items-center justify-center rounded-full border border-outline/20 bg-surface-container px-4 py-2 text-sm font-semibold text-on-surface-variant transition hover:bg-surface-container-high"
           >
             Cerrar
           </button>
@@ -202,15 +202,15 @@ export default function LegalModal({
         <div className="mt-8 space-y-10">
           {content.sections.map((section) => (
             <section key={section.title}>
-              <h3 className="text-xl font-semibold text-slate-900">
+              <h3 className="text-xl font-semibold text-on-surface">
                 {section.title}
               </h3>
-              <div className="mt-4 space-y-4 text-base leading-7 text-slate-700">
+              <div className="mt-4 space-y-4 text-base leading-7 text-on-surface-variant">
                 {section.paragraphs.map((paragraph, index) => (
                   <p key={`${section.title}-${index}`}>{paragraph}</p>
                 ))}
                 {section.list && (
-                  <ul className="mt-2 list-disc space-y-2 pl-5 text-slate-700">
+                  <ul className="mt-2 list-disc space-y-2 pl-5 text-on-surface-variant">
                     {section.list.map((item) => (
                       <li key={item}>{item}</li>
                     ))}

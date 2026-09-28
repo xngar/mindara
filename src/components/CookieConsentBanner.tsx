@@ -32,13 +32,13 @@ export default function CookieConsentBanner({
   }
 
   return (
-    <div className="fixed bottom-6 left-1/2 z-[55] w-[min(95vw,42rem)] -translate-x-1/2 rounded-4xl border border-slate-200 bg-white/95 p-5 shadow-2xl backdrop-blur-sm">
+    <div className="fixed bottom-6 left-1/2 z-[55] w-[min(95vw,42rem)] -translate-x-1/2 rounded-4xl border border-outline/15 bg-surface-container-lowest/95 p-5 shadow-2xl backdrop-blur-sm">
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div className="space-y-2">
-          <p className="text-sm font-semibold text-slate-950">
+          <p className="text-sm font-semibold text-on-surface">
             Acepta cookies para mejorar tu experiencia.
           </p>
-          <p className="text-sm leading-6 text-slate-600">
+          <p className="text-sm leading-6 text-on-surface-variant">
             Utilizamos cookies necesarias, analíticas y de funcionalidad para
             ofrecer un sitio más rápido y personalizado.
           </p>
@@ -48,14 +48,14 @@ export default function CookieConsentBanner({
           <button
             type="button"
             onClick={acceptCookies}
-            className="rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary/90"
+            className="rounded-full bg-primary px-5 py-3 text-sm font-semibold text-on-primary transition hover:bg-primary-dim"
           >
             Aceptar cookies
           </button>
           <button
             type="button"
             onClick={onShowCookiePolicy}
-            className="rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+            className="rounded-full border border-outline/40 bg-surface-container-lowest px-5 py-3 text-sm font-semibold text-on-surface-variant transition hover:bg-surface-container-low"
           >
             Ver política
           </button>

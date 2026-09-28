@@ -8,14 +8,14 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <main className="min-h-[calc(100vh-6rem)] bg-surface py-20 px-6 text-slate-900 sm:px-10">
-      <div className="mx-auto w-full max-w-6xl rounded-4xl border border-slate-200 bg-white p-10 shadow-xl">
+    <main className="min-h-[calc(100vh-6rem)] bg-surface py-20 px-6 text-on-surface sm:px-10">
+      <div className="mx-auto w-full max-w-6xl rounded-4xl border border-outline/15 bg-surface-container-lowest p-10 shadow-xl">
         <p className="text-sm uppercase tracking-[0.3em] text-primary">
           Última actualización: 6 de agosto de 2026
         </p>
         <h1 className="mt-6 text-4xl font-semibold">Política de Privacidad</h1>
 
-        <section className="mt-10 space-y-5 text-base leading-8 text-slate-700">
+        <section className="mt-10 space-y-5 text-base leading-8 text-on-surface-variant">
           <p>
             En www.mindara.cl (en adelante, &quot;el Sitio Web&quot;), nos
             comprometemos a proteger y respetar la privacidad de nuestros
@@ -27,7 +27,7 @@ export default function PrivacyPage() {
           </p>
 
           <div>
-            <h2 className="text-2xl font-semibold text-slate-900">
+            <h2 className="text-2xl font-semibold text-on-surface">
               1. Información que Recopilamos
             </h2>
             <p className="mt-4">
@@ -48,7 +48,7 @@ export default function PrivacyPage() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold text-slate-900">
+            <h2 className="text-2xl font-semibold text-on-surface">
               2. Uso de la Información
             </h2>
             <p className="mt-4">
@@ -73,7 +73,7 @@ export default function PrivacyPage() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold text-slate-900">
+            <h2 className="text-2xl font-semibold text-on-surface">
               3. Protección y Almacenamiento de Datos
             </h2>
             <p className="mt-4">
@@ -86,7 +86,7 @@ export default function PrivacyPage() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold text-slate-900">
+            <h2 className="text-2xl font-semibold text-on-surface">
               4. Derechos del Usuario
             </h2>
             <p className="mt-4">
@@ -99,7 +99,7 @@ export default function PrivacyPage() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold text-slate-900">
+            <h2 className="text-2xl font-semibold text-on-surface">
               5. Modificaciones a la Política
             </h2>
             <p className="mt-4">

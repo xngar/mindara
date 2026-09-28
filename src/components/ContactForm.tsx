@@ -27,7 +27,7 @@ export default function ContactForm() {
               </div>
               <button
                 onClick={handleSendAnother}
-                className="bg-primary hover:bg-primary-dim text-on-primary px-8 py-4 rounded-xl font-bold transition-all duration-300 hover:shadow-md active:scale-95 cursor-pointer"
+                className="bg-primary hover:bg-primary-dim text-on-primary px-8 py-4 rounded-xl font-bold transition-all duration-300 hover:shadow-brand active:scale-95 cursor-pointer"
               >
                 Enviar otro mensaje
               </button>
@@ -46,7 +46,7 @@ export default function ContactForm() {
 
               <form action={formAction} className="space-y-6">
                 {state?.error && (
-                  <div className="p-4 bg-error/10 border border-error/20 text-error rounded-lg flex items-start gap-3">
+                  <div className="p-4 bg-error/10 border border-error/20 text-error-dim rounded-lg flex items-start gap-3">
                     <span className="material-symbols-outlined text-xl shrink-0">
                       error
                     </span>
@@ -153,7 +153,7 @@ export default function ContactForm() {
                 </div>
 
                 <button
-                  className="w-full bg-primary text-on-primary py-5 rounded-xl font-bold text-lg hover:shadow-lg transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full bg-primary text-on-primary py-5 rounded-xl font-bold text-lg hover:bg-primary-dim hover:shadow-brand-lg transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
                   type="submit"
                   disabled={pending}
                 >

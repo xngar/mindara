@@ -29,7 +29,7 @@ export default function Team() {
             <h2 className="text-5xl md:text-6xl font-headline font-black tracking-tight text-on-surface">
               Nuestro Equipo
             </h2>
-            <div className="w-16 h-1 bg-primary rounded-full mx-auto"></div>
+            <div className="w-16 h-1 bg-secondary rounded-full mx-auto"></div>
           </div>
           <p className="text-on-surface-variant text-lg leading-relaxed">
             Creemos en el poder de la colaboración multidisciplinaria.

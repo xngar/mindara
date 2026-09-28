@@ -8,14 +8,14 @@ export const metadata: Metadata = {
 
 export default function CookiesPage() {
   return (
-    <main className="min-h-[calc(100vh-6rem)] bg-surface py-20 px-6 text-slate-900 sm:px-10">
-      <div className="mx-auto w-full max-w-6xl rounded-4xl border border-slate-200 bg-white p-10 shadow-xl">
+    <main className="min-h-[calc(100vh-6rem)] bg-surface py-20 px-6 text-on-surface sm:px-10">
+      <div className="mx-auto w-full max-w-6xl rounded-4xl border border-outline/15 bg-surface-container-lowest p-10 shadow-xl">
         <p className="text-sm uppercase tracking-[0.3em] text-primary">
           Última actualización: 6 de agosto de 2026
         </p>
         <h1 className="mt-6 text-4xl font-semibold">Política de Cookies</h1>
 
-        <section className="mt-10 space-y-5 text-base leading-8 text-slate-700">
+        <section className="mt-10 space-y-5 text-base leading-8 text-on-surface-variant">
           <p>
             El sitio web www.mindara.cl utiliza cookies y tecnologías similares
             para mejorar la experiencia de navegación, optimizar las
@@ -24,7 +24,7 @@ export default function CookiesPage() {
           </p>
 
           <div>
-            <h2 className="text-2xl font-semibold text-slate-900">
+            <h2 className="text-2xl font-semibold text-on-surface">
               1. ¿Qué es una Cookie?
             </h2>
             <p className="mt-4">
@@ -37,7 +37,7 @@ export default function CookiesPage() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold text-slate-900">
+            <h2 className="text-2xl font-semibold text-on-surface">
               2. Tipos de Cookies que Utilizamos
             </h2>
             <p className="mt-4">
@@ -64,7 +64,7 @@ export default function CookiesPage() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold text-slate-900">
+            <h2 className="text-2xl font-semibold text-on-surface">
               3. Gestión y Desactivación de Cookies
             </h2>
             <p className="mt-4">

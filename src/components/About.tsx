@@ -72,7 +72,7 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full pt-4">
           {/* Pilar 1 — Estrategia Integral */}
           <div className="bg-surface-container-lowest p-8 rounded-2xl border border-outline/5 hover:border-primary/20 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
-            <div className="w-14 h-14 mb-6 rounded-2xl bg-purple-50 flex items-center justify-center text-primary overflow-hidden shrink-0 group-hover:scale-110 transition-transform duration-300">
+            <div className="w-14 h-14 mb-6 rounded-2xl bg-primary-container flex items-center justify-center text-primary overflow-hidden shrink-0 group-hover:scale-110 transition-transform duration-300">
               <IconTrendingUp />
             </div>
             <h3 className="text-xl font-headline font-extrabold mb-3 text-on-surface group-hover:text-primary transition-colors">
@@ -85,11 +85,11 @@ export default function About() {
           </div>
 
           {/* Pilar 2 — Eficiencia Real */}
-          <div className="bg-surface-container-lowest p-8 rounded-2xl border border-outline/5 hover:border-secondary/20 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
-            <div className="w-14 h-14 mb-6 rounded-2xl bg-orange-50 flex items-center justify-center text-secondary overflow-hidden shrink-0 group-hover:scale-110 transition-transform duration-300">
+          <div className="bg-surface-container-lowest p-8 rounded-2xl border border-outline/5 hover:border-secondary-dim/20 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
+            <div className="w-14 h-14 mb-6 rounded-2xl bg-secondary-container flex items-center justify-center text-secondary-dim overflow-hidden shrink-0 group-hover:scale-110 transition-transform duration-300">
               <IconBolt />
             </div>
-            <h3 className="text-xl font-headline font-extrabold mb-3 text-on-surface group-hover:text-secondary transition-colors">
+            <h3 className="text-xl font-headline font-extrabold mb-3 text-on-surface group-hover:text-secondary-dim transition-colors">
               Experiencia aplicada
             </h3>
             <p className="text-on-surface-variant leading-relaxed text-sm">
@@ -100,10 +100,10 @@ export default function About() {
 
           {/* Pilar 3 — Experiencia que Convierte */}
           <div className="bg-surface-container-lowest p-8 rounded-2xl border border-outline/5 hover:border-tertiary/20 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group">
-            <div className="w-14 h-14 mb-6 rounded-2xl bg-green-50 flex items-center justify-center text-tertiary overflow-hidden shrink-0 group-hover:scale-110 transition-transform duration-300">
+            <div className="w-14 h-14 mb-6 rounded-2xl bg-tertiary-container flex items-center justify-center text-tertiary-dim overflow-hidden shrink-0 group-hover:scale-110 transition-transform duration-300">
               <IconSparkle />
             </div>
-            <h3 className="text-xl font-headline font-extrabold mb-3 text-on-surface group-hover:text-tertiary transition-colors">
+            <h3 className="text-xl font-headline font-extrabold mb-3 text-on-surface group-hover:text-tertiary-dim transition-colors">
               Soluciones conectadas
             </h3>
             <p className="text-on-surface-variant leading-relaxed text-sm">
@@ -116,7 +116,7 @@ export default function About() {
         {/* Estadísticas Centradas y Rediseñadas */}
         <div className="grid grid-cols-2 gap-12 md:gap-24 pt-12 w-full max-w-2xl mx-auto border-t border-outline/10">
           <div className="flex flex-col items-center min-h-[112px] justify-start">
-            <div className="text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary mb-2 min-h-[72px] flex items-end">
+            <div className="text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary-dim mb-2 min-h-[72px] flex items-end">
               <CountUp
                 to={35}
                 direction="up"
@@ -130,7 +130,7 @@ export default function About() {
             </div>
           </div>
           <div className="flex flex-col items-center min-h-[112px] justify-start">
-            <div className="text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary mb-2 min-h-[72px] flex items-end">
+            <div className="text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary-dim mb-2 min-h-[72px] flex items-end">
               <CountUp
                 to={10}
                 direction="up"

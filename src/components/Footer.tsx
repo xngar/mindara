@@ -22,36 +22,36 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="bg-slate-50 py-12 border-t border-slate-100">
+      <footer className="bg-secondary py-12 border-t border-on-secondary/15">
         <div className="flex flex-col md:flex-row justify-between items-center px-6 md:px-[60px] w-full mx-auto space-y-6 md:space-y-0">
           <div className="flex flex-col items-center md:items-start gap-4">
-            <div className="text-xl font-bold text-slate-800">Mindara</div>
+            <div className="text-xl font-bold text-on-secondary">Mindara</div>
             <div className="flex flex-wrap gap-4 text-sm">
               <button
                 type="button"
                 onClick={() => openLegal("privacy")}
-                className="text-slate-500 hover:text-primary transition-colors"
+                className="text-on-secondary/80 hover:text-on-secondary transition-colors"
               >
                 Política de Privacidad
               </button>
               <button
                 type="button"
                 onClick={() => openLegal("terms")}
-                className="text-slate-500 hover:text-primary transition-colors"
+                className="text-on-secondary/80 hover:text-on-secondary transition-colors"
               >
                 Términos y Condiciones
               </button>
               <button
                 type="button"
                 onClick={() => openLegal("cookies")}
-                className="text-slate-500 hover:text-primary transition-colors"
+                className="text-on-secondary/80 hover:text-on-secondary transition-colors"
               >
                 Política de Cookies
               </button>
             </div>
           </div>
 
-          <p className="font-['Inter'] text-sm text-slate-500">
+          <p className="font-['Inter'] text-sm text-on-secondary/80">
             © 2026 Mindara. Todos los derechos reservados.
           </p>
         </div>

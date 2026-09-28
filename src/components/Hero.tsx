@@ -56,7 +56,7 @@ export default function Hero() {
         <div className="flex flex-wrap gap-4">
           <a
             href="#contacto"
-            className="inline-flex items-center gap-2 bg-primary text-on-primary px-10 py-5 rounded-xl font-bold text-lg hover:shadow-[0_20px_50px_rgba(107,70,193,0.3)] transition-all"
+            className="inline-flex items-center gap-2 bg-primary text-on-primary px-10 py-5 rounded-xl font-bold text-lg hover:bg-primary-dim hover:shadow-brand-lg transition-all"
           >
             Consulta tu proyecto
             <span className="material-symbols-outlined">arrow_forward</span>
@@ -70,11 +70,11 @@ export default function Hero() {
         </div>
       </div>
       <div className="relative group w-full max-w-140 mx-auto">
-        <div className="absolute -inset-4 rounded-full bg-primary/10 blur-3xl transition-all duration-500 group-hover:scale-110 group-hover:bg-primary/20"></div>
-        <div className="absolute inset-6 rounded-[2rem] border border-primary/15 bg-gradient-to-br from-white/10 via-transparent to-primary/10 backdrop-blur-sm"></div>
-        <div className="relative aspect-square w-full overflow-hidden rounded-4xl border border-white/15 bg-surface-container-low/70 shadow-[0_24px_80px_rgba(15,23,42,0.16)] ring-1 ring-primary/10">
+        <div className="absolute -inset-4 rounded-full bg-secondary-dim/10 blur-3xl transition-all duration-500 group-hover:scale-110 group-hover:bg-secondary-dim/20"></div>
+        <div className="absolute inset-6 rounded-[2rem] border border-secondary/25 bg-gradient-to-br from-white/10 via-transparent to-secondary/25 backdrop-blur-sm"></div>
+        <div className="relative aspect-square w-full overflow-hidden rounded-4xl border border-white/15 bg-surface-container-low/70 shadow-depth ring-1 ring-secondary/30">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.28),transparent_38%)]"></div>
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-secondary/25 via-transparent to-transparent"></div>
           <div className="absolute inset-3 rounded-[1.5rem] border border-white/10"></div>
           <video
             ref={videoRef}

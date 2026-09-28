@@ -2,6 +2,22 @@
 
 import { Resend } from 'resend';
 
+/**
+ * Paleta de marca usada en el correo (HTML plano, sin CSS del sitio).
+ * Mantener sincronizada con los tokens :root de src/app/globals.css:
+ *   --brand-primary, --brand-surface, --brand-surface-container-highest,
+ *   --brand-on-surface, --brand-outline-variant, --brand-surface-container-lowest
+ */
+const MAIL_BRAND = {
+  primary: '#065a82',
+  surface: '#f5f8fa',
+  surfaceContainerHighest: '#d7e5eb',
+  surfaceContainerLowest: '#ffffff',
+  onSurface: '#043851',
+  outlineVariant: '#76a4ba',
+  onSurfaceVariant: '#054868',
+} as const;
+
 export type ActionState = {
   success: boolean;
   message?: string;
@@ -59,15 +75,15 @@ export async function sendContactEmail(prevState: ActionState | null, formData: 
       to: contactTo,
       subject: `MINDARA Contacto: ${subject}`,
       html: `
-        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e9ed; border-radius: 12px; background-color: #f7fafc; color: #2c3437;">
-          <h2 style="color: #6b46c1; border-bottom: 2px solid #6b46c1; padding-bottom: 10px; margin-top: 0;">Nuevo mensaje de contacto</h2>
-          <p style="margin: 15px 0;"><strong>De:</strong> ${name} (<a href="mailto:${email}" style="color: #6b46c1; text-decoration: none;">${email}</a>)</p>
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid ${MAIL_BRAND.surfaceContainerHighest}; border-radius: 12px; background-color: ${MAIL_BRAND.surface}; color: ${MAIL_BRAND.onSurface};">
+          <h2 style="color: ${MAIL_BRAND.primary}; border-bottom: 2px solid ${MAIL_BRAND.primary}; padding-bottom: 10px; margin-top: 0;">Nuevo mensaje de contacto</h2>
+          <p style="margin: 15px 0;"><strong>De:</strong> ${name} (<a href="mailto:${email}" style="color: ${MAIL_BRAND.primary}; text-decoration: none;">${email}</a>)</p>
           <p style="margin: 15px 0;"><strong>Servicio de interés:</strong> ${service || 'No especificado'}</p>
           <p style="margin: 15px 0;"><strong>Asunto:</strong> ${subject}</p>
-          <div style="background-color: #ffffff; padding: 15px; border-radius: 8px; border: 1px solid #dce4e8; margin-top: 20px;">
+          <div style="background-color: ${MAIL_BRAND.surfaceContainerLowest}; padding: 15px; border-radius: 8px; border: 1px solid ${MAIL_BRAND.outlineVariant}; margin-top: 20px;">
             <p style="margin: 0; white-space: pre-wrap; line-height: 1.6;">${message}</p>
           </div>
-          <footer style="margin-top: 30px; font-size: 12px; color: #586064; text-align: center; border-top: 1px solid #dce4e8; padding-top: 15px;">
+          <footer style="margin-top: 30px; font-size: 12px; color: ${MAIL_BRAND.onSurfaceVariant}; text-align: center; border-top: 1px solid ${MAIL_BRAND.outlineVariant}; padding-top: 15px;">
             Este correo fue enviado automáticamente desde el formulario de contacto de MINDARA.
           </footer>
         </div>
