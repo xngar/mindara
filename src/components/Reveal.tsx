@@ -1,13 +1,21 @@
 "use client";
-import { useRef, useEffect, useState, ReactNode, memo } from "react";
+import {
+  useRef,
+  useEffect,
+  useState,
+  ReactNode,
+  CSSProperties,
+  memo,
+} from "react";
 
 interface RevealProps {
   children: ReactNode;
   delay?: number;
   className?: string;
+  style?: CSSProperties;
 }
 
-function Reveal({ children, delay = 0, className = "" }: RevealProps) {
+function Reveal({ children, delay = 0, className = "", style }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState<boolean>(() => {
     if (typeof window === "undefined") {
@@ -52,10 +60,16 @@ function Reveal({ children, delay = 0, className = "" }: RevealProps) {
       ref={ref}
       className={className}
       style={{
+        ...style,
         opacity: isVisible ? 1 : 0,
-        transform: isVisible ? "translateY(0px)" : "translateY(20px)",
+        filter: isVisible ? "blur(0px)" : "blur(8px)",
+        transform: isVisible
+          ? "translate3d(0, 0, 0) scale(1) rotateX(0deg)"
+          : "translate3d(0, 22px, 0) scale(0.98) rotateX(10deg)",
+        transformOrigin: "center bottom",
+        willChange: "opacity, transform, filter",
         transition: isVisible
-          ? `opacity 0.35s ease ${delay}s, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`
+          ? `opacity 0.6s ease ${delay}s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s, filter 0.6s ease ${delay}s`
           : "none",
       }}
     >

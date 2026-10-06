@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
+import Reveal from "./Reveal";
 
 interface GalleryImage {
   src: string;
@@ -262,49 +263,54 @@ export default function BentoGallery() {
           }}
         >
           {images.map((img, idx) => (
-            <button
+            <Reveal
               key={img.src}
-              id={`gallery-item-${idx + 1}`}
-              onClick={() => openModal(img, idx)}
-              className="relative overflow-hidden rounded-2xl group cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-on-background/60"
+              delay={idx * 0.04}
+              className="relative"
               style={bentoStyles[idx]}
-              aria-label={`Ver ${img.alt} en grande`}
             >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                sizes={
-                  idx === 0
-                    ? "(max-width: 768px) 100vw, 50vw" // 2×2 — ocupa la mitad del grid
-                    : idx === 3 || idx === 5
-                      ? "(max-width: 768px) 100vw, 50vw" // 2×1 — ocupa la mitad del grid
-                      : "(max-width: 768px) 100vw, 25vw" // 1×1 — ocupa un cuarto del grid
-                }
-                className={`object-cover transition-transform duration-500 ease-out ${
-                  idx === 1
-                    ? "scale-[1.2] group-hover:scale-[1.25]"
-                    : "group-hover:scale-105"
-                }`}
-                loading={idx === 0 ? "eager" : "lazy"}
-              />
+              <button
+                id={`gallery-item-${idx + 1}`}
+                onClick={() => openModal(img, idx)}
+                className="group absolute inset-0 cursor-pointer overflow-hidden rounded-2xl focus:outline-none focus-visible:ring-4 focus-visible:ring-on-background/60"
+                aria-label={`Ver ${img.alt} en grande`}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  sizes={
+                    idx === 0
+                      ? "(max-width: 768px) 100vw, 50vw" // 2×2 — ocupa la mitad del grid
+                      : idx === 3 || idx === 5
+                        ? "(max-width: 768px) 100vw, 50vw" // 2×1 — ocupa la mitad del grid
+                        : "(max-width: 768px) 100vw, 25vw" // 1×1 — ocupa un cuarto del grid
+                  }
+                  className={`object-cover transition-transform duration-500 ease-out ${
+                    idx === 1
+                      ? "scale-[1.2] group-hover:scale-[1.25]"
+                      : "group-hover:scale-105"
+                  }`}
+                  loading={idx === 0 ? "eager" : "lazy"}
+                />
 
-              {/* Overlay degradado */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                {/* Overlay degradado */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-              {/* Etiqueta hover */}
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                <span className="text-white font-headline font-bold text-sm tracking-wide drop-shadow">
-                  {img.alt}
-                </span>
-                <span className="material-symbols-outlined text-white text-xl drop-shadow">
-                  zoom_in
-                </span>
-              </div>
+                {/* Etiqueta hover */}
+                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                  <span className="text-white font-headline font-bold text-sm tracking-wide drop-shadow">
+                    {img.alt}
+                  </span>
+                  <span className="material-symbols-outlined text-white text-xl drop-shadow">
+                    zoom_in
+                  </span>
+                </div>
 
-              {/* Borde brillante */}
-              <div className="absolute inset-0 rounded-2xl ring-0 group-hover:ring-2 ring-on-background/50 transition-all duration-300 pointer-events-none" />
-            </button>
+                {/* Borde brillante */}
+                <div className="absolute inset-0 rounded-2xl ring-0 group-hover:ring-2 ring-on-background/50 transition-all duration-300 pointer-events-none" />
+              </button>
+            </Reveal>
           ))}
         </div>
       </div>

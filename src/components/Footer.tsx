@@ -22,36 +22,39 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="bg-secondary py-12 border-t border-on-secondary/15">
-        <div className="flex flex-col md:flex-row justify-between items-center px-6 md:px-[60px] w-full mx-auto space-y-6 md:space-y-0">
-          <div className="flex flex-col items-center md:items-start gap-4">
-            <div className="text-xl font-bold text-on-secondary">Mindara</div>
-            <div className="flex flex-wrap gap-4 text-sm">
+      <footer className="border-t border-white/10 bg-primary py-12 text-on-primary">
+        <div className="section-shell flex flex-col items-center justify-between gap-6 md:flex-row md:gap-0">
+          <div className="flex flex-col items-center gap-4 md:items-start">
+            <div className="flex items-center gap-2 text-xl font-black tracking-[-0.08em] font-headline">
+              <span className="inline-flex h-2.5 w-2.5 rounded-full bg-secondary shadow-[0_0_0_4px_rgba(247,183,74,0.2)]" />
+              Mindara
+            </div>
+            <div className="flex flex-wrap justify-center gap-4 text-sm md:justify-start">
               <button
                 type="button"
                 onClick={() => openLegal("privacy")}
-                className="text-on-secondary/80 hover:text-on-secondary transition-colors"
+                className="text-on-primary/80 transition-colors hover:text-on-primary"
               >
                 Política de Privacidad
               </button>
               <button
                 type="button"
                 onClick={() => openLegal("terms")}
-                className="text-on-secondary/80 hover:text-on-secondary transition-colors"
+                className="text-on-primary/80 transition-colors hover:text-on-primary"
               >
                 Términos y Condiciones
               </button>
               <button
                 type="button"
                 onClick={() => openLegal("cookies")}
-                className="text-on-secondary/80 hover:text-on-secondary transition-colors"
+                className="text-on-primary/80 transition-colors hover:text-on-primary"
               >
                 Política de Cookies
               </button>
             </div>
           </div>
 
-          <p className="font-['Inter'] text-sm text-on-secondary/80">
+          <p className="text-sm text-on-primary/75">
             © 2026 Mindara. Todos los derechos reservados.
           </p>
         </div>

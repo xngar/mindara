@@ -11,54 +11,73 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contacto" className="py-32 bg-surface-container-low">
-      <div className="w-full mx-auto px-6 md:px-[60px] max-w-6xl">
-        <div className="bg-surface-container-lowest rounded-xl p-8 md:p-12 clay-shadow transition-all duration-500 mx-auto max-w-4xl">
+    <section id="contacto" className="py-24 md:py-28">
+      <div className="section-shell">
+        <div className="panel mx-auto max-w-6xl overflow-hidden rounded-[2rem] p-6 md:p-8 xl:p-10">
           {state?.success ? (
-            <div className="text-center py-12 flex flex-col items-center justify-center space-y-6">
+            <div className="flex flex-col items-center justify-center space-y-6 py-12 text-center">
               <div className="space-y-2">
-                <h3 className="text-3xl font-headline font-extrabold text-on-surface">
-                  ¡Mensaje Enviado!
+                <h3 className="text-3xl font-black tracking-[-0.05em] text-on-surface font-headline">
+                  ¡Mensaje enviado!
                 </h3>
-                <p className="text-on-surface-variant max-w-md mx-auto">
+                <p className="mx-auto max-w-md text-base text-on-surface-variant">
                   {state?.message ||
                     "Hemos recibido tu mensaje correctamente. Nos pondremos en contacto contigo lo antes posible."}
                 </p>
               </div>
               <button
                 onClick={handleSendAnother}
-                className="bg-primary hover:bg-primary-dim text-on-primary px-8 py-4 rounded-xl font-bold transition-all duration-300 hover:shadow-brand active:scale-95 cursor-pointer"
+                className="cursor-pointer rounded-full bg-primary px-8 py-4 text-base font-extrabold text-on-primary transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-dim"
               >
                 Enviar otro mensaje
               </button>
             </div>
           ) : (
-            <>
-              <div className="text-center mb-12">
-                <h2 className="text-4xl font-headline font-extrabold text-on-surface mb-4">
+            <div className="grid gap-8 lg:grid-cols-[0.9fr_1.3fr]">
+              <div className="rounded-[1.5rem] bg-primary px-6 py-8 text-on-primary md:p-8">
+                <span className="eyebrow !border-white/15 !bg-white/5 !text-on-primary">
+                  Hablemos
+                </span>
+                <h2 className="mt-5 text-4xl font-black tracking-[-0.06em] font-headline">
                   Cuéntanos qué necesitas comunicar, enseñar o mejorar
                 </h2>
-                <p className="text-on-surface-variant">
-                  Cuéntanos sobre tu operación, equipo o proyecto y prepararemos
-                  una orientación inicial.
+                <p className="mt-4 text-base leading-relaxed text-on-primary/80">
+                  Prepararemos una orientación inicial para tu operación, equipo
+                  o proyecto.
                 </p>
+
+                <ul className="mt-8 space-y-3 text-sm font-medium text-on-primary/85">
+                  {[
+                    "Capacitación visual para equipos",
+                    "Señalética y contenidos de seguridad",
+                    "Diseño técnico y documentación",
+                    "Experiencias digitales para tu marca",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-3">
+                      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/10 text-sm">
+                        ✓
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              <form action={formAction} className="space-y-6">
+              <form action={formAction} className="space-y-5 p-2 md:p-3">
                 {state?.error && (
-                  <div className="p-4 bg-error/10 border border-error/20 text-error-dim rounded-lg flex items-start gap-3">
-                    <span className="material-symbols-outlined text-xl shrink-0">
+                  <div className="flex items-start gap-3 rounded-2xl border border-error/20 bg-error/10 p-4 text-sm font-medium text-error-dim">
+                    <span className="material-symbols-outlined shrink-0 text-xl">
                       error
                     </span>
-                    <span className="text-sm font-medium">{state.error}</span>
+                    <span>{state.error}</span>
                   </div>
                 )}
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2 flex flex-col">
+                <div className="grid gap-5 md:grid-cols-2">
+                  <div className="flex flex-col gap-2">
                     <label
                       htmlFor="name"
-                      className="text-sm font-bold text-on-surface px-1"
+                      className="px-1 text-sm font-bold text-on-surface"
                     >
                       Nombre
                     </label>
@@ -66,15 +85,15 @@ export default function ContactForm() {
                       id="name"
                       name="name"
                       required
-                      className="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary py-4 px-6 text-on-surface transition-all"
+                      className="w-full rounded-2xl border border-primary/10 bg-surface-container-low px-4 py-3.5 text-on-surface outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/20"
                       placeholder="Tu nombre completo"
                       type="text"
                     />
                   </div>
-                  <div className="space-y-2 flex flex-col">
+                  <div className="flex flex-col gap-2">
                     <label
                       htmlFor="email"
-                      className="text-sm font-bold text-on-surface px-1"
+                      className="px-1 text-sm font-bold text-on-surface"
                     >
                       Email
                     </label>
@@ -82,23 +101,24 @@ export default function ContactForm() {
                       id="email"
                       name="email"
                       required
-                      className="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary py-4 px-6 text-on-surface transition-all"
+                      className="w-full rounded-2xl border border-primary/10 bg-surface-container-low px-4 py-3.5 text-on-surface outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/20"
                       placeholder="hola@tuempresa.com"
                       type="email"
                     />
                   </div>
                 </div>
-                <div className="space-y-2 flex flex-col">
+
+                <div className="flex flex-col gap-2">
                   <label
                     htmlFor="service"
-                    className="text-sm font-bold text-on-surface px-1"
+                    className="px-1 text-sm font-bold text-on-surface"
                   >
                     ¿Qué necesitas desarrollar?
                   </label>
                   <select
                     id="service"
                     name="service"
-                    className="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary py-4 px-6 text-on-surface transition-all"
+                    className="w-full rounded-2xl border border-primary/10 bg-surface-container-low px-4 py-3.5 text-on-surface outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/20"
                     defaultValue=""
                   >
                     <option value="" disabled>
@@ -119,10 +139,11 @@ export default function ContactForm() {
                     <option value="Otro proyecto">Otro proyecto</option>
                   </select>
                 </div>
-                <div className="space-y-2 flex flex-col">
+
+                <div className="flex flex-col gap-2">
                   <label
                     htmlFor="subject"
-                    className="text-sm font-bold text-on-surface px-1"
+                    className="px-1 text-sm font-bold text-on-surface"
                   >
                     Asunto
                   </label>
@@ -130,15 +151,16 @@ export default function ContactForm() {
                     id="subject"
                     name="subject"
                     required
-                    className="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary py-4 px-6 text-on-surface transition-all"
+                    className="w-full rounded-2xl border border-primary/10 bg-surface-container-low px-4 py-3.5 text-on-surface outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/20"
                     placeholder="¿En qué podemos ayudarte?"
                     type="text"
                   />
                 </div>
-                <div className="space-y-2 flex flex-col">
+
+                <div className="flex flex-col gap-2">
                   <label
                     htmlFor="message"
-                    className="text-sm font-bold text-on-surface px-1"
+                    className="px-1 text-sm font-bold text-on-surface"
                   >
                     Mensaje
                   </label>
@@ -146,21 +168,21 @@ export default function ContactForm() {
                     id="message"
                     name="message"
                     required
-                    className="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary py-4 px-6 text-on-surface transition-all"
+                    className="w-full rounded-2xl border border-primary/10 bg-surface-container-low px-4 py-3.5 text-on-surface outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/20"
                     placeholder="Cuéntanos más sobre tu visión..."
                     rows={5}
                   ></textarea>
                 </div>
 
                 <button
-                  className="w-full bg-primary text-on-primary py-5 rounded-xl font-bold text-lg hover:bg-primary-dim hover:shadow-brand-lg transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-base font-extrabold text-on-primary transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-dim disabled:cursor-not-allowed disabled:opacity-50"
                   type="submit"
                   disabled={pending}
                 >
                   {pending ? (
                     <>
                       <svg
-                        className="animate-spin -ml-1 mr-3 h-5 w-5 text-on-primary"
+                        className="mr-2 h-5 w-5 animate-spin text-on-primary"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -172,21 +194,21 @@ export default function ContactForm() {
                           r="10"
                           stroke="currentColor"
                           strokeWidth="4"
-                        ></circle>
+                        />
                         <path
                           className="opacity-75"
                           fill="currentColor"
                           d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                        ></path>
+                        />
                       </svg>
                       Enviando...
                     </>
                   ) : (
-                    "Enviar Mensaje"
+                    "Enviar mensaje"
                   )}
                 </button>
               </form>
-            </>
+            </div>
           )}
         </div>
       </div>

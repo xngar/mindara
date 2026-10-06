@@ -15,26 +15,29 @@ export default function TopNavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const desktopLinkClasses =
-    "cursor-pointer text-on-primary/80 hover:text-on-primary flex transition-colors hover:bg-on-primary/10 rounded-full px-4 py-2 font-headline font-bold tracking-tight";
+    "cursor-pointer text-on-primary/80 hover:text-on-primary flex transition-all duration-200 hover:bg-white/8 rounded-full px-4 py-2 font-headline font-bold tracking-tight";
   const mobileLinkClasses =
     "cursor-pointer text-on-primary/80 hover:text-on-primary font-headline font-bold tracking-tight py-2 border-b border-on-primary/15";
 
   return (
     <nav
-      className={`mt-4 mx-auto w-[calc(100%-32px)] md:w-[calc(100%-120px)] sticky top-4 z-50 bg-primary/95 backdrop-blur-xl shadow-depth text-on-primary transition-all duration-300 ${isOpen ? "rounded-2xl" : "rounded-full"}`}
+      className={`sticky top-4 z-50 mx-auto mt-4 w-[calc(100%-32px)] md:w-[calc(100%-120px)] rounded-full border border-white/10 bg-primary/90 text-on-primary shadow-brand-lg backdrop-blur-xl transition-all duration-300 ${isOpen ? "rounded-2xl" : "rounded-full"}`}
     >
-      <div className="flex justify-between items-center px-6 md:px-8 py-3">
-        <div className="text-2xl md:text-4xl font-black text-on-primary font-headline tracking-tight text-center">
-          MINDARA
-        </div>
+      <div className="flex items-center justify-between px-5 py-3 md:px-8">
+        <a href="#inicio" className="flex items-center gap-2 text-left">
+          <span className="inline-flex h-2.5 w-2.5 rounded-full bg-secondary shadow-[0_0_0_4px_rgba(247,183,74,0.2)]" />
+          <span className="text-xl font-black tracking-[-0.08em] text-on-primary md:text-3xl font-headline">
+            MINDARA
+          </span>
+        </a>
 
-        <div className="hidden md:flex items-center space-x-1">
+        <div className="hidden items-center space-x-1 md:flex">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className={`${desktopLinkClasses} ${link.active ? "text-on-primary border-b-2 border-on-primary pb-1 rounded-none" : ""}`}
+              className={`${desktopLinkClasses} ${link.active ? "text-on-primary bg-white/8" : ""}`}
             >
               {link.label}
             </a>
@@ -44,14 +47,14 @@ export default function TopNavBar() {
         <a
           href="#contacto"
           onClick={() => setIsOpen(false)}
-          className="hidden md:block cursor-pointer bg-secondary text-on-secondary px-8 py-3 rounded-full font-bold transition-all scale-95 active:scale-90 hover:bg-on-primary hover:text-primary hover:shadow-brand"
+          className="hidden cursor-pointer rounded-full bg-secondary px-6 py-2.5 text-sm font-bold text-on-secondary transition-all duration-200 hover:scale-[1.02] hover:bg-secondary-bright hover:text-on-secondary md:block"
         >
           Hablemos
         </a>
 
         <button
           aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
-          className="md:hidden flex items-center justify-center p-2 text-on-primary hover:bg-on-primary/10 rounded-full transition-colors"
+          className="flex items-center justify-center rounded-full p-2 text-on-primary transition-colors hover:bg-white/8 md:hidden"
           onClick={() => setIsOpen(!isOpen)}
         >
           <span className="material-symbols-outlined" aria-hidden="true">
@@ -61,7 +64,7 @@ export default function TopNavBar() {
       </div>
 
       {isOpen && (
-        <div className="md:hidden flex flex-col px-6 pb-6 pt-2 space-y-4 border-t border-on-primary/15">
+        <div className="flex flex-col space-y-4 border-t border-white/10 px-6 pb-6 pt-4 md:hidden">
           {links.map((link) => (
             <a
               key={link.href}
@@ -75,7 +78,7 @@ export default function TopNavBar() {
           <a
             href="#contacto"
             onClick={() => setIsOpen(false)}
-            className="cursor-pointer bg-secondary text-center text-on-secondary px-8 py-3 rounded-full font-bold transition-all active:scale-95 mt-2 hover:bg-on-primary hover:text-primary"
+            className="mt-2 rounded-full bg-secondary px-8 py-3 text-center font-bold text-on-secondary"
           >
             Hablemos
           </a>
