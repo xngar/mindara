@@ -25,8 +25,7 @@ export default function Footer() {
       <footer className="border-t border-white/10 bg-primary py-12 text-on-primary">
         <div className="section-shell flex flex-col items-center justify-between gap-6 md:flex-row md:gap-0">
           <div className="flex flex-col items-center gap-4 md:items-start">
-            <div className="flex items-center gap-2 text-xl font-black tracking-[-0.08em] font-headline">
-              <span className="inline-flex h-2.5 w-2.5 rounded-full bg-secondary shadow-[0_0_0_4px_rgba(247,183,74,0.2)]" />
+            <div className="flex items-center text-xl font-black tracking-[-0.08em] font-headline">
               Mindara
             </div>
             <div className="flex flex-wrap justify-center gap-4 text-sm md:justify-start">

@@ -35,10 +35,7 @@ export default function ContactForm() {
           ) : (
             <div className="grid gap-8 lg:grid-cols-[0.9fr_1.3fr]">
               <div className="rounded-[1.5rem] bg-primary px-6 py-8 text-on-primary md:p-8">
-                <span className="eyebrow !border-white/15 !bg-white/5 !text-on-primary">
-                  Hablemos
-                </span>
-                <h2 className="mt-5 text-4xl font-black tracking-[-0.06em] font-headline">
+                <h2 className="text-4xl font-black tracking-[-0.06em] font-headline">
                   Cuéntanos qué necesitas comunicar, enseñar o mejorar
                 </h2>
                 <p className="mt-4 text-base leading-relaxed text-on-primary/80">

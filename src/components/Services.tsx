@@ -167,8 +167,7 @@ export default function Services() {
     <section id="servicios" className="py-24 md:py-28">
       <div className="section-shell">
         <div className="mb-12 text-center md:mb-16">
-          <span className="eyebrow">Soluciones para empresas</span>
-          <h2 className="mt-5 text-4xl font-black tracking-[-0.06em] text-on-surface md:text-5xl xl:text-6xl font-headline">
+          <h2 className="text-4xl font-black tracking-[-0.06em] text-on-surface md:text-5xl xl:text-6xl font-headline">
             Diseñamos lo que hace crecer tu operación
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-on-surface-variant md:text-xl">

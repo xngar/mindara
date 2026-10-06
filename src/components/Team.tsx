@@ -23,8 +23,7 @@ export default function Team() {
     <section id="equipo" className="py-24 md:py-28">
       <div className="section-shell">
         <div className="mx-auto mb-14 max-w-3xl text-center">
-          <span className="eyebrow">Nuestro equipo</span>
-          <h2 className="mt-5 text-4xl font-black tracking-[-0.06em] text-on-surface md:text-5xl xl:text-6xl font-headline">
+          <h2 className="text-4xl font-black tracking-[-0.06em] text-on-surface md:text-5xl xl:text-6xl font-headline">
             Creatividad y rigor técnico al servicio de tus metas
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-on-surface-variant md:text-xl">

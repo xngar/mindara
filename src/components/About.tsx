@@ -76,7 +76,6 @@ export default function About() {
     <section id="nosotros" className="py-24 md:py-28">
       <div className="section-shell flex flex-col items-center text-center">
         <div className="mb-12 max-w-4xl space-y-5">
-          <span className="eyebrow">Nuestra forma de trabajar</span>
           <h2 className="text-4xl font-black tracking-[-0.06em] text-on-surface md:text-5xl xl:text-6xl font-headline">
             Te ayudamos a{" "}
             <span className="text-primary">

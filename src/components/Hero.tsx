@@ -50,10 +50,6 @@ export default function Hero() {
     >
       <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
         <div className="space-y-8">
-          <span className="eyebrow">
-            Especialistas en comunicación industrial
-          </span>
-
           <h1 className="max-w-xl text-5xl font-black leading-[0.96] tracking-[-0.07em] text-on-surface md:text-6xl xl:text-7xl font-headline">
             <div className="hidden md:block">
               <StrokeText
@@ -140,9 +136,6 @@ export default function Hero() {
           <div className="absolute -right-5 top-8 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
 
           <div className="panel relative overflow-hidden rounded-[2rem] border border-primary/10 bg-gradient-to-br from-white/60 to-primary/5 p-3">
-            <div className="absolute left-5 top-5 z-10 rounded-full border border-white/40 bg-primary/80 px-3 py-1.5 text-[0.62rem] font-extrabold uppercase tracking-[0.18em] text-on-primary shadow-lg backdrop-blur-sm">
-              Diseño + capacitación + señalética
-            </div>
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.6),transparent_30%)]" />
             <div className="relative overflow-hidden rounded-[1.5rem] border border-white/30 bg-surface-container-low">
               <video

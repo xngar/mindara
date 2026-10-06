@@ -59,9 +59,8 @@ export default function TopNavBar() {
         <a
           href="#inicio"
           onClick={() => setIsOpen(false)}
-          className="flex items-center gap-2 text-left"
+          className="flex items-center text-left"
         >
-          <span className="inline-flex h-2.5 w-2.5 rounded-full bg-secondary shadow-[0_0_0_4px_rgba(247,183,74,0.2)]" />
           <span className="text-xl font-black tracking-[-0.08em] text-on-primary md:text-3xl font-headline">
             MINDARA
           </span>
